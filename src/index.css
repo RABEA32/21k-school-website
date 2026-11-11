@@ -1,1 +1,32 @@
 @import "tailwindcss";
+
+@theme {
+  --font-display: "Fraunces", Georgia, serif;
+  --font-sans: "Manrope", ui-sans-serif, system-ui, sans-serif;
+
+  --color-ink: #13203b;
+  --color-ink-soft: #4a5672;
+  --color-cream: #faf6ef;
+  --color-sand: #f1e8d9;
+  --color-coral: #e0603f;
+  --color-coral-dark: #c24c2e;
+  --color-teal: #1d7a6c;
+  --color-gold: #e8b04b;
+  --color-sky: #dfeaf4;
+
+  --shadow-card: 0 1px 2px rgb(19 32 59 / 0.04), 0 12px 32px -12px rgb(19 32 59 / 0.18);
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  @apply bg-cream font-sans text-ink antialiased;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+}

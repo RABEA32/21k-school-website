@@ -1,391 +1,241 @@
+import { useState } from 'react'
+import { Link } from 'react-router'
 import { motion } from 'motion/react'
 import Button, { Arrow } from '../components/Button.jsx'
+import Icon from '../components/Icon.jsx'
 import Reveal from '../components/Reveal.jsx'
 import SectionHeading from '../components/SectionHeading.jsx'
 import CountUp from '../components/CountUp.jsx'
-import Dimensions from '../components/Dimensions.jsx'
-import Accordion from '../components/Accordion.jsx'
 import TestimonialCarousel from '../components/TestimonialCarousel.jsx'
-import ContactForm from '../components/ContactForm.jsx'
-import {
-  hero, accreditations, stats, achieversIntro, achievers, pedagogy, dimensions,
-  ecosystem, pathways, culture, testimonials, faqs, img,
-} from '../data/home.js'
+import { about, cta, events, features, hero, programs, stats, studentLife, testimonials } from '../data/home.js'
 
 const wrap = 'mx-auto max-w-7xl px-5 sm:px-8'
 const ease = [0.22, 1, 0.36, 1]
+// On phones a card list becomes a swipeable row; from sm up it is a grid.
+const row = '-mx-5 flex snap-x snap-mandatory gap-4 overflow-x-auto px-5 pb-3 sm:mx-0 sm:grid sm:overflow-visible sm:px-0 sm:pb-0'
+const rowItem = 'w-[75%] shrink-0 snap-start sm:w-auto'
+
+function Tile({ icon, tone, size = 'size-11' }) {
+  return (
+    <span className={`grid ${size} shrink-0 place-items-center rounded-lg ${tone}`}>
+      <Icon name={icon} className="size-5" />
+    </span>
+  )
+}
 
 function Hero() {
-  const pillars = pedagogy.map((p) => p.title)
   return (
-    <section className="relative overflow-hidden">
-      <div aria-hidden="true" className="absolute -top-40 -right-40 size-[36rem] rounded-full bg-gold/25 blur-3xl" />
-      <div aria-hidden="true" className="absolute top-1/2 -left-48 size-[28rem] rounded-full bg-sky blur-3xl" />
+    <section className="relative isolate overflow-hidden bg-navy-dark">
+      <img src={hero.image} alt="Young students with backpacks walking to school together" fetchPriority="high" className="absolute inset-0 -z-10 size-full object-cover object-[70%_center]" />
+      <div className="absolute inset-0 -z-10 bg-gradient-to-r from-navy-dark via-navy-dark/85 to-navy-dark/10 max-lg:via-navy-dark/75 max-lg:to-navy-dark/45" />
 
-      <div className={`${wrap} relative grid items-center gap-14 pt-8 pb-20 lg:grid-cols-[1.05fr_1fr] lg:pt-14 lg:pb-28`}>
-        <div>
-          <motion.ul
-            initial="hidden"
-            animate="show"
-            variants={{ show: { transition: { staggerChildren: 0.08 } } }}
-            className="flex flex-wrap gap-2"
-          >
-            {hero.badges.map((b) => (
-              <motion.li
-                key={b}
-                variants={{ hidden: { opacity: 0, y: 10 }, show: { opacity: 1, y: 0 } }}
-                className="rounded-full border border-ink/10 bg-white/70 px-3.5 py-1.5 text-xs font-semibold text-ink/75"
-              >
-                {b}
-              </motion.li>
-            ))}
-          </motion.ul>
-
-          <motion.h1
-            initial={{ opacity: 0, y: 30 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.9, ease, delay: 0.15 }}
-            className="mt-8 font-display text-[3.4rem] leading-[0.95] font-medium tracking-tight text-ink sm:text-7xl xl:text-[5.75rem]"
-          >
-            <span className="text-coral italic">{hero.tag}</span>
-            <br />
-            {hero.title}
-          </motion.h1>
-
-          <motion.p
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8, ease, delay: 0.3 }}
-            className="mt-7 max-w-xl text-lg leading-relaxed text-ink-soft sm:text-xl"
-          >
-            {hero.intro} Live online classes, physical campuses and after-school programmes — Indian and international
-            curricula, for learners in 78+ countries.
-          </motion.p>
-
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8, ease, delay: 0.45 }}
-            className="mt-10 flex flex-col gap-3 sm:flex-row"
-          >
-            <Button to="/#contact">
-              Get Started <Arrow />
-            </Button>
-            <Button to="/#programs" variant="outline">
-              Explore Programs
-            </Button>
-          </motion.div>
-
-          <motion.p
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            transition={{ delay: 0.7, duration: 0.8 }}
-            className="mt-10 flex flex-wrap items-center gap-x-4 gap-y-2 text-sm font-semibold text-ink/60"
-          >
-            {pillars.map((p, i) => (
-              <span key={p} className="flex items-center gap-4">
-                {i > 0 && <span aria-hidden="true" className="size-1 rounded-full bg-coral" />}
-                {p}
-              </span>
-            ))}
-          </motion.p>
-        </div>
-
-        <motion.div
-          initial={{ opacity: 0, scale: 0.94 }}
-          animate={{ opacity: 1, scale: 1 }}
-          transition={{ duration: 1.1, ease, delay: 0.1 }}
-          className="relative"
+      <div className={`${wrap} flex min-h-[30rem] flex-col justify-center pt-16 pb-28 lg:min-h-[36rem]`}>
+        <motion.p
+          initial={{ opacity: 0, y: 12 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.6, ease }}
+          className="flex items-center gap-3 text-[0.65rem] font-semibold tracking-[0.2em] text-white/85 uppercase sm:text-xs sm:tracking-[0.25em]"
         >
-          <div aria-hidden="true" className="absolute -inset-3 translate-x-5 translate-y-5 rounded-[3rem] border-2 border-dashed border-coral/30" />
-          <div className="relative overflow-hidden rounded-[2.5rem] shadow-card">
-            <img
-              src={hero.image}
-              alt="A smiling student studying at her desk"
-              className="aspect-[4/5] w-full object-cover sm:aspect-[5/5] lg:aspect-[4/5]"
-              fetchPriority="high"
-            />
-          </div>
-
-          <motion.div
-            initial={{ opacity: 0, x: -30 }}
-            animate={{ opacity: 1, x: 0 }}
-            transition={{ delay: 0.8, duration: 0.8, ease }}
-            className="absolute -bottom-8 -left-2 w-48 overflow-hidden rounded-3xl border-4 border-cream shadow-card sm:-left-10 sm:w-60"
-          >
-            <img src={hero.inset} alt="A learner joining a live online class" className="aspect-[4/3] w-full object-cover" loading="lazy" />
-          </motion.div>
-
-          <motion.div
-            initial={{ opacity: 0, y: -20 }}
-            animate={{ opacity: 1, y: [0, -8, 0] }}
-            transition={{ opacity: { delay: 1, duration: 0.6 }, y: { delay: 1, duration: 5, repeat: Infinity, ease: 'easeInOut' } }}
-            className="absolute top-8 -right-2 rounded-2xl bg-white px-5 py-4 shadow-card sm:-right-6"
-          >
-            <p className="font-display text-3xl text-ink">78+</p>
-            <p className="text-xs font-semibold text-ink-soft">countries, one school</p>
-          </motion.div>
+          {hero.eyebrow}
+          <span aria-hidden="true" className="h-0.5 w-10 rounded bg-gold" />
+        </motion.p>
+        <motion.h1
+          initial={{ opacity: 0, y: 24 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.8, ease, delay: 0.1 }}
+          className="mt-5 max-w-2xl font-display text-5xl leading-[1.08] font-bold text-white sm:text-6xl lg:text-[4.25rem]"
+        >
+          {hero.title}
+          <span className="block text-gold">{hero.accent}</span>
+        </motion.h1>
+        <motion.p
+          initial={{ opacity: 0, y: 16 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.8, ease, delay: 0.25 }}
+          className="mt-5 max-w-lg text-base leading-relaxed text-white/85 sm:text-lg"
+        >
+          {hero.intro}
+        </motion.p>
+        <motion.div
+          initial={{ opacity: 0, y: 16 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.8, ease, delay: 0.4 }}
+          className="mt-8 flex flex-col gap-3 sm:flex-row"
+        >
+          <Button to="#apply">Apply for Admission <Arrow /></Button>
+          <Button to="#tour" variant="outline">
+            <span className="grid size-5 place-items-center rounded-full bg-white text-navy"><Icon name="play" className="size-3" /></span>
+            Take a Virtual Tour
+          </Button>
         </motion.div>
       </div>
+
+      <motion.div
+        initial={{ opacity: 0, scale: 0.8, rotate: -20 }}
+        animate={{ opacity: 1, scale: 1, rotate: -8 }}
+        transition={{ duration: 0.9, ease, delay: 0.5 }}
+        className="absolute top-14 right-[6%] hidden size-40 place-items-center rounded-full border-4 border-white/90 bg-navy text-center shadow-2xl lg:grid"
+      >
+        <p className="px-4 font-display text-sm leading-snug font-semibold text-white">
+          Accredited<span className="block text-lg text-gold">Cambridge</span>&amp; Pearson Edexcel
+        </p>
+      </motion.div>
     </section>
   )
 }
 
-function Accreditation() {
+function Features() {
   return (
-    <section aria-labelledby="accreditation" className={`${wrap} pb-10`}>
-      <Reveal className="rounded-[2rem] border border-ink/10 bg-white/60 p-6 sm:p-8">
-        <div className="grid items-center gap-6 lg:grid-cols-[auto_1fr]">
-          <h2 id="accreditation" className="text-xs font-bold uppercase tracking-[0.2em] text-ink/50 lg:max-w-[9rem]">
-            Accredited & recognised by
-          </h2>
-          <ul className="grid gap-4 sm:grid-cols-3">
-            {accreditations.map((a) => (
-              <li key={a.name} className="flex items-center gap-4 rounded-2xl bg-white p-4 shadow-[0_1px_2px_rgb(19_32_59/0.05)]">
-                <span
-                  title="Logo placeholder"
-                  className="grid size-14 shrink-0 place-items-center rounded-xl border border-dashed border-ink/25 bg-cream text-[0.6rem] font-bold uppercase tracking-wider text-ink/40"
-                >
-                  Logo
-                </span>
-                <span>
-                  <span className="block font-semibold text-ink">{a.name}</span>
-                  <span className="block text-sm text-ink-soft">{a.detail}</span>
-                </span>
-              </li>
-            ))}
-          </ul>
-        </div>
+    <section aria-label="Why families choose us" className={`${wrap} relative z-10 -mt-14`}>
+      <Reveal as="ul" y={30} className="grid grid-cols-2 gap-px overflow-hidden rounded-xl bg-line shadow-card sm:grid-cols-3 lg:grid-cols-6">
+        {features.map((f) => (
+          <li key={f.label} className="group flex items-center gap-3 bg-white px-4 py-4 sm:px-5 sm:py-5">
+            <span className="text-navy transition-transform duration-300 group-hover:-translate-y-0.5 group-hover:text-gold-dark">
+              <Icon name={f.icon} className="size-8" />
+            </span>
+            <span className="font-display text-sm leading-tight font-semibold text-navy">{f.label}</span>
+          </li>
+        ))}
       </Reveal>
     </section>
   )
 }
 
-function Stats() {
+function About() {
   return (
-    <section aria-label="21K School in numbers" className={`${wrap} py-10`}>
-      <dl className="grid grid-cols-2 gap-px overflow-hidden rounded-[2rem] bg-ink/10 lg:grid-cols-4">
-        {stats.map((s, i) => (
-          <Reveal key={s.label} delay={i * 0.08} className="flex flex-col-reverse bg-cream px-5 py-8 sm:px-10 sm:py-10">
-            <dt className="mt-2 text-sm font-semibold text-ink-soft">{s.label}</dt>
-            <dd className="font-display text-[2.6rem] leading-none font-medium text-ink sm:text-6xl">
-              <CountUp value={s.value} suffix={s.suffix} />
-            </dd>
-          </Reveal>
-        ))}
-      </dl>
-    </section>
-  )
-}
-
-function Achievers() {
-  return (
-    <section className={`${wrap} py-24 sm:py-32`}>
-      <div className="grid gap-10 lg:grid-cols-2 lg:items-end">
-        <SectionHeading eyebrow="Our achievers" title="Where every child carries a star" intro={achieversIntro.lead} />
-        <Reveal className="lg:pb-2">
-          <p className="text-ink-soft lg:max-w-md lg:justify-self-end">{achieversIntro.body}</p>
-        </Reveal>
-      </div>
-
-      <div className="mt-14 grid gap-5 md:grid-cols-2 lg:grid-cols-4 lg:grid-rows-2">
-        {achievers.map((a, i) => (
-          <Reveal
-            key={a.name}
-            delay={(i % 4) * 0.08}
-            className={`group relative overflow-hidden rounded-[2rem] bg-ink ${i === 0 ? 'md:col-span-2 lg:row-span-2' : ''}`}
-          >
-            <img
-              src={a.image}
-              alt=""
-              loading="lazy"
-              className={`w-full object-cover opacity-80 transition duration-700 group-hover:scale-105 group-hover:opacity-90 ${i === 0 ? 'aspect-[4/3] lg:aspect-auto lg:h-full' : 'aspect-[4/3] lg:aspect-[4/5]'}`}
-            />
-            <div className="absolute inset-0 bg-gradient-to-t from-ink via-ink/30 to-transparent" />
-            <div className="absolute inset-x-0 bottom-0 p-6">
-              <span className="rounded-full bg-white/15 px-3 py-1 text-xs font-semibold text-white backdrop-blur">{a.domain}</span>
-              <h3 className={`mt-3 font-display text-white ${i === 0 ? 'text-3xl sm:text-4xl' : 'text-xl'}`}>{a.name}</h3>
-              <p className={`mt-1 text-white/80 ${i === 0 ? 'max-w-md text-base' : 'text-sm'}`}>{a.title}</p>
-            </div>
-          </Reveal>
-        ))}
-      </div>
-      <p className="mt-5 text-xs text-ink/50">Achievements as published by 21K School. Photographs are illustrative and do not show the learners named.</p>
-    </section>
-  )
-}
-
-function Pedagogy() {
-  return (
-    <section className="bg-white py-24 sm:py-32">
-      <div className={wrap}>
-        <SectionHeading
-          eyebrow="Our learning pedagogy"
-          title={
-            <>
-              At the centre of every choice we make: <span className="text-coral italic">learner success.</span>
-            </>
-          }
-        />
-        <div className="mt-14 grid gap-6 md:grid-cols-3">
-          {pedagogy.map((p, i) => (
-            <Reveal key={p.title} delay={i * 0.12} className="group flex flex-col overflow-hidden rounded-[2rem] bg-cream shadow-card">
-              <div className="overflow-hidden">
-                <img src={p.image} alt="" loading="lazy" className="aspect-[16/11] w-full object-cover transition duration-700 group-hover:scale-105" />
-              </div>
-              <div className="flex flex-1 flex-col p-7">
-                <p className="font-display text-sm text-coral">0{i + 1}</p>
-                <h3 className="mt-1 font-display text-3xl text-ink">{p.title}</h3>
-                <p className="mt-3 font-semibold text-ink">{p.lead}</p>
-                <p className="mt-3 flex-1 leading-relaxed text-ink-soft">{p.body}</p>
-                <p className="mt-6 border-t border-ink/10 pt-4 text-xs font-bold uppercase tracking-[0.15em] text-teal">{p.pillar}</p>
-              </div>
-            </Reveal>
-          ))}
-        </div>
-      </div>
-    </section>
-  )
-}
-
-function SevenDimensions() {
-  return (
-    <section className="relative overflow-hidden bg-ink py-24 sm:py-32">
-      <div aria-hidden="true" className="absolute -top-32 left-1/3 size-[30rem] rounded-full bg-teal/30 blur-3xl" />
-      <div className={`${wrap} relative`}>
-        <SectionHeading
-          light
-          eyebrow="How do we define success?"
-          title="The 7 Dimensions of Success"
-          intro="Somewhere along the way, curiosity was traded for compliance. We help learners discover their strengths and build the foundations for a fulfilling life — not just titles and milestones."
-        />
-        <Reveal className="mt-14">
-          <Dimensions items={dimensions} />
-        </Reveal>
-      </div>
-    </section>
-  )
-}
-
-function Ecosystem() {
-  return (
-    <section id="programs" className={`${wrap} scroll-mt-24 py-24 sm:py-32`}>
-      <SectionHeading
-        eyebrow="Our learning ecosystem"
-        title="One strong community. Many ways to belong."
-        intro="Each one built differently. Each one built for a different kind of child. All built with the same heart."
-      />
-      <div className="mt-14 grid gap-6 md:grid-cols-2">
-        {ecosystem.map((e, i) => (
-          <Reveal key={e.name} delay={(i % 2) * 0.12} className={`group flex flex-col overflow-hidden rounded-[2rem] ${e.tone} p-3 shadow-card`}>
-            <div className="overflow-hidden rounded-[1.6rem]">
-              <img src={e.image} alt="" loading="lazy" className="aspect-[16/9] w-full object-cover transition duration-700 group-hover:scale-105" />
-            </div>
-            <div className="flex flex-1 flex-col p-5 sm:p-7">
-              <p className="text-xs font-bold uppercase tracking-[0.2em] text-ink/50">{e.kicker}</p>
-              <h3 className="mt-2 font-display text-3xl text-ink">{e.name}</h3>
-              <p className="mt-3 flex-1 leading-relaxed text-ink-soft">{e.body}</p>
-              <Button to={e.to} variant="dark" className="mt-6 self-start">
-                {e.cta} <Arrow />
-              </Button>
-            </div>
-          </Reveal>
-        ))}
-      </div>
-    </section>
-  )
-}
-
-function Pathways() {
-  const { indian, british, stages } = pathways
-  return (
-    <section className="bg-sand/60 py-24 sm:py-32">
-      <div className={wrap}>
-        <SectionHeading
-          align="center"
-          eyebrow="Curriculum pathways"
-          title="Not just a certificate. A passport."
-          intro="Recognised by Cambridge and Pearson Edexcel and following India’s National Curriculum Framework, our pathways open doors to universities around the world."
-        />
-
-        <div className="mt-14 grid gap-6 md:grid-cols-2">
-          {[indian, british].map((p, i) => (
-            <Reveal key={p.name} delay={i * 0.12} className={`rounded-[2rem] p-8 sm:p-10 ${i === 0 ? 'bg-teal text-white' : 'bg-ink text-white'}`}>
-              <h3 className="font-display text-3xl">{p.name}</h3>
-              <p className="mt-4 leading-relaxed text-white/80">{p.summary}</p>
-              <ul className="mt-6 flex flex-wrap gap-2">
-                {p.facts.map((f) => (
-                  <li key={f} className="rounded-full bg-white/10 px-3.5 py-1.5 text-xs font-semibold">{f}</li>
-                ))}
-              </ul>
-            </Reveal>
-          ))}
-        </div>
-
-        <Reveal className="mt-6 overflow-hidden rounded-[2rem] bg-white shadow-card">
-          <div className="hidden grid-cols-[0.8fr_1fr_1fr_1fr] gap-6 border-b border-ink/10 bg-cream px-8 py-5 text-xs font-bold uppercase tracking-[0.15em] text-ink/50 md:grid">
-            <span>School stage</span>
-            <span className="text-teal">Indian pathway</span>
-            <span>British pathway</span>
-            <span className="text-coral">What matters most</span>
-          </div>
-          <ul className="divide-y divide-ink/10">
-            {stages.map((s) => (
-              <li key={s.stage} className="grid gap-3 px-6 py-6 transition-colors hover:bg-cream/60 md:grid-cols-[0.8fr_1fr_1fr_1fr] md:gap-6 md:px-8">
-                <span className="font-display text-xl text-ink">{s.stage}</span>
-                <span className="text-sm text-ink-soft">
-                  <span className="mb-0.5 block text-xs font-bold text-teal md:hidden">Indian</span>
-                  {s.indian}
-                </span>
-                <span className="text-sm text-ink-soft">
-                  <span className="mb-0.5 block text-xs font-bold text-ink md:hidden">British</span>
-                  {s.british}
-                </span>
-                <span className="text-sm text-ink-soft">
-                  <span className="mb-0.5 block text-xs font-bold text-coral md:hidden">What matters most</span>
-                  {s.matters}
-                </span>
+    <section aria-labelledby="about" className={`${wrap} scroll-mt-28 py-14`}>
+      <div className="grid grid-cols-1 gap-6 lg:grid-cols-[1fr_1.15fr_0.8fr]">
+        <Reveal>
+          <SectionHeading id="about" label="About Our School" title={about.title} />
+          <p className="text-sm leading-relaxed text-muted">{about.body}</p>
+          <ul className="mt-5 space-y-2.5">
+            {about.points.map((p) => (
+              <li key={p} className="flex items-start gap-2.5 text-sm text-ink">
+                <span className="mt-0.5 grid size-4.5 shrink-0 place-items-center rounded-full bg-gold text-navy-dark"><Icon name="check" className="size-3" /></span>
+                {p}
               </li>
             ))}
           </ul>
+          <Button to="/#programs" variant="navy" className="mt-7">Explore Our Programs <Arrow /></Button>
         </Reveal>
 
-        <Reveal className="mt-10 text-center">
-          <p className="text-ink-soft">Not sure which path is right for your child? Let’s find it together.</p>
-          <Button to="/#contact" className="mt-5">
-            Talk to an advisor <Arrow />
-          </Button>
+        <Reveal delay={0.1} className="group relative min-h-72 overflow-hidden rounded-xl">
+          <img src={about.image} alt="A school building with a green lawn" loading="lazy" className="absolute inset-0 size-full object-cover transition duration-700 group-hover:scale-105" />
+          <div className="absolute inset-0 bg-navy-dark/20" />
+          <Link to="#tour" aria-label="Watch our video" className="absolute inset-0 grid place-items-center">
+            <span className="grid size-16 place-items-center rounded-full bg-white text-navy shadow-xl transition-transform duration-300 group-hover:scale-110">
+              <Icon name="play" className="size-7" />
+            </span>
+          </Link>
+          <span className="pointer-events-none absolute bottom-4 left-1/2 flex -translate-x-1/2 items-center gap-2 rounded-md bg-navy-dark/80 px-3 py-1.5 text-xs font-semibold text-white">
+            <Icon name="play" className="size-3" /> Watch Our Video
+          </span>
+        </Reveal>
+
+        <Reveal delay={0.2} as="dl" className="grid gap-3 rounded-xl bg-mist p-5 sm:grid-cols-2 lg:grid-cols-1">
+          {stats.map((s) => (
+            <div key={s.label} className="flex items-center gap-4 rounded-lg bg-white p-3.5 shadow-sm">
+              <Tile icon={s.icon} tone={s.tone} />
+              <div className="flex flex-col-reverse">
+                <dt className="text-xs text-muted">{s.label}</dt>
+                <dd className="font-display text-2xl leading-tight font-bold text-navy"><CountUp value={s.value} suffix={s.suffix} /></dd>
+              </div>
+            </div>
+          ))}
         </Reveal>
       </div>
     </section>
   )
 }
 
-function Culture() {
+function Programs() {
   return (
-    <section className={`${wrap} py-24 sm:py-32`}>
-      <div className="grid gap-10 lg:grid-cols-[0.9fr_1.1fr] lg:gap-16">
-        <div>
-          <SectionHeading
-            eyebrow="Learning culture"
-            title="Nurturing the people our learners are becoming"
-            intro="Habits of Mind run through every day at 21K — helping learners grow in confidence, resourcefulness and independence."
-          />
-          <Reveal className="mt-10 overflow-hidden rounded-[2rem]">
-            <img src={img('1529156069898-49953e39b3ac', 1000)} alt="Friends standing together with arms around each other" loading="lazy" className="aspect-[4/3] w-full object-cover" />
+    <section aria-labelledby="programs" className={`${wrap} scroll-mt-28 pb-14`}>
+      <SectionHeading id="programs" label="Our Academic Programs" link={{ to: '/online-school', label: 'View All Programs' }} />
+      <div className={`${row} sm:grid-cols-2 lg:grid-cols-4 sm:gap-5`}>
+        {programs.map((p, i) => (
+          <Reveal key={p.title} delay={i * 0.08} className={rowItem}>
+            <Link to="/online-school" className="group block h-full overflow-hidden rounded-xl bg-white shadow-card ring-1 ring-line transition hover:-translate-y-1">
+              <div className="overflow-hidden">
+                <img src={p.image} alt="" loading="lazy" className="aspect-[16/11] w-full object-cover transition duration-700 group-hover:scale-105" />
+              </div>
+              <div className="flex gap-3.5 p-5">
+                <Tile icon={p.icon} tone={p.tone} />
+                <div>
+                  <h3 className="font-display text-base font-semibold text-navy">{p.title}</h3>
+                  <p className="text-xs font-semibold text-navy/70">({p.grades})</p>
+                  <p className="mt-1.5 text-sm text-muted">{p.body}</p>
+                </div>
+              </div>
+            </Link>
           </Reveal>
+        ))}
+      </div>
+    </section>
+  )
+}
+
+function LifeAndNews() {
+  const [all, setAll] = useState(false)
+  const [openEvent, setOpenEvent] = useState(null)
+  const shown = all ? events : events.slice(0, 3)
+
+  return (
+    <section className={`${wrap} grid grid-cols-1 gap-10 pb-14 lg:grid-cols-[1.45fr_1fr]`}>
+      <div aria-labelledby="student-life" className="min-w-0 scroll-mt-28">
+        <SectionHeading id="student-life" label="Student Life" link={{ to: '/on-campus', label: 'Discover More' }} />
+        <div className={`${row} sm:grid-cols-3`}>
+          {studentLife.map((s, i) => (
+            <Reveal key={s.title} delay={i * 0.08} className={`${rowItem} group overflow-hidden rounded-xl bg-white shadow-card ring-1 ring-line`}>
+              <div className="overflow-hidden">
+                <img src={s.image} alt="" loading="lazy" className="aspect-[4/3] w-full object-cover transition duration-700 group-hover:scale-105" />
+              </div>
+              <div className="flex gap-3 p-4">
+                <Tile icon={s.icon} tone={s.tone} size="size-9" />
+                <div>
+                  <h3 className="font-display text-sm font-semibold text-navy">{s.title}</h3>
+                  <p className="mt-0.5 text-xs text-muted">{s.body}</p>
+                </div>
+              </div>
+            </Reveal>
+          ))}
         </div>
-        <ul className="grid gap-3 self-end sm:grid-cols-2 sm:gap-4">
-          {culture.map((c, i) => (
-            <Reveal
-              as="li"
-              key={c.trait}
-              delay={(i % 4) * 0.06}
-              className={`group rounded-3xl p-6 transition-all duration-300 hover:-translate-y-1 hover:shadow-card ${i % 3 === 0 ? 'bg-coral/10' : i % 3 === 1 ? 'bg-sky' : 'bg-sand'}`}
-            >
-              <span className="font-display text-sm text-ink/40">0{i + 1}</span>
-              <h3 className="mt-2 font-display text-2xl text-ink sm:mt-6 sm:text-[1.7rem]">{c.trait}</h3>
-              <p className="mt-1 text-sm text-ink-soft">{c.line}</p>
+      </div>
+
+      <div className="min-w-0 scroll-mt-28" id="news">
+        <SectionHeading
+          label="News & Events"
+          link={{
+            to: '/#news',
+            label: all ? 'Show Fewer' : 'View All Events',
+            onClick: (e) => {
+              e.preventDefault()
+              setAll((a) => !a)
+            },
+          }}
+        />
+        <ul className={`${row} sm:grid-cols-3`}>
+          {shown.map((e, i) => (
+            <Reveal as="li" key={e.title} delay={i * 0.08} className={`${rowItem} overflow-hidden rounded-xl bg-white shadow-card ring-1 ring-line`}>
+              <div className="relative">
+                <img src={e.image} alt="" loading="lazy" className="aspect-[4/3] w-full object-cover" />
+                <span className="absolute top-2 left-2 rounded-md bg-navy px-2 py-1 text-center leading-none text-white">
+                  <span className="block font-display text-base font-bold">{e.day}</span>
+                  <span className="text-[0.6rem] font-semibold tracking-wide text-gold uppercase">{e.month}</span>
+                </span>
+              </div>
+              <div className="p-3.5">
+                <h3 className="font-display text-sm leading-snug font-semibold text-navy">{e.title}</h3>
+                {openEvent === e.title && <p className="mt-1 text-xs text-muted">{e.when}</p>}
+                <button
+                  type="button"
+                  onClick={() => setOpenEvent(openEvent === e.title ? null : e.title)}
+                  aria-expanded={openEvent === e.title}
+                  className="mt-2 flex items-center gap-1 text-xs font-semibold text-navy hover:text-gold-dark"
+                >
+                  {openEvent === e.title ? 'Show less' : 'Read More'} <Icon name="arrow" className="size-3.5" />
+                </button>
+              </div>
             </Reveal>
           ))}
         </ul>
@@ -394,71 +244,32 @@ function Culture() {
   )
 }
 
-function Testimonials() {
+function JoinAndTestimonials() {
   return (
-    <section className="bg-sky/60 py-24 sm:py-32">
-      <div className={`${wrap} grid gap-12 lg:grid-cols-[0.8fr_1.2fr] lg:items-center`}>
-        <SectionHeading
-          eyebrow="Parent voices"
-          title="What our community says"
-          intro="These are sample quotes for layout only. They will be replaced with verified parent testimonials, shared with consent."
-        />
-        <Reveal>
-          <TestimonialCarousel items={testimonials} />
-        </Reveal>
-      </div>
-    </section>
-  )
-}
-
-function Faq() {
-  return (
-    <section className={`${wrap} py-24 sm:py-32`}>
-      <div className="grid gap-12 lg:grid-cols-[0.8fr_1.2fr]">
-        <div className="lg:sticky lg:top-28 lg:self-start">
-          <SectionHeading eyebrow="FAQ" title="Frequently asked questions" intro="Straight answers on recognition, documents and how online school works." />
-        </div>
-        <Reveal>
-          <Accordion items={faqs} />
-        </Reveal>
-      </div>
-    </section>
-  )
-}
-
-function FinalCta() {
-  return (
-    <section id="contact" className="scroll-mt-20 px-3 pb-3 sm:px-5 sm:pb-5">
-      <div className="relative overflow-hidden rounded-[2.5rem] bg-ink">
-        <img src={img('1541339907198-e08756dedf3f', 1800)} alt="" loading="lazy" className="absolute inset-0 size-full object-cover opacity-25" />
-        <div className="absolute inset-0 bg-gradient-to-br from-ink via-ink/90 to-coral/60" />
-        <div className={`${wrap} relative grid gap-12 py-20 sm:py-28 lg:grid-cols-2 lg:items-center`}>
-          <div>
-            <SectionHeading
-              light
-              eyebrow="Talk to an admissions counsellor"
-              title="Find the right path for your child"
-              intro="Tell us a little about your family and an advisor will reach out — no obligation."
-            />
-            <Reveal as="ul" className="mt-8 space-y-3 text-white/85">
-              {['Both curricula explained side by side', 'Fees and start dates in one call', 'Next cohorts: January 2027 · June 2027'].map((t) => (
-                <li key={t} className="flex items-center gap-3">
-                  <span className="grid size-6 place-items-center rounded-full bg-gold text-ink">
-                    <svg viewBox="0 0 24 24" className="size-3.5" fill="none" stroke="currentColor" strokeWidth="3" aria-hidden="true">
-                      <path d="m5 12 5 5 9-10" strokeLinecap="round" strokeLinejoin="round" />
-                    </svg>
-                  </span>
-                  {t}
-                </li>
-              ))}
-            </Reveal>
+    <>
+      <section className={`${wrap} grid grid-cols-1 gap-10 pb-12 lg:grid-cols-[1.45fr_1fr]`}>
+        <Reveal className="grid h-full overflow-hidden rounded-xl bg-navy shadow-card sm:grid-cols-[0.9fr_1.1fr]">
+          <img src={cta.image} alt="Graduates throwing their caps in the air" loading="lazy" className="aspect-[16/9] size-full object-cover sm:aspect-auto" />
+          <div className="flex flex-col justify-center p-7 sm:p-9">
+            <h2 className="font-display text-2xl leading-tight font-bold text-white sm:text-3xl">{cta.title}</h2>
+            <p className="mt-3 text-sm text-white/80">{cta.body}</p>
+            <span aria-hidden="true" className="mt-5 block h-1 w-12 rounded bg-gold" />
           </div>
-          <Reveal delay={0.15}>
-            <ContactForm />
+        </Reveal>
+        <div aria-labelledby="testimonials" className="scroll-mt-28">
+          <SectionHeading id="testimonials" label="What Parents Say" />
+          <Reveal delay={0.1}>
+            <TestimonialCarousel items={testimonials} />
           </Reveal>
         </div>
+      </section>
+      <div className="bg-navy">
+        <div className={`${wrap} flex flex-col justify-end gap-3 py-5 sm:flex-row`}>
+          <Button to="#apply">Apply Now <Arrow /></Button>
+          <Button to="/#contact" variant="outline">Contact Us</Button>
+        </div>
       </div>
-    </section>
+    </>
   )
 }
 
@@ -466,17 +277,11 @@ export default function Home() {
   return (
     <>
       <Hero />
-      <Accreditation />
-      <Stats />
-      <Achievers />
-      <Pedagogy />
-      <SevenDimensions />
-      <Ecosystem />
-      <Pathways />
-      <Culture />
-      <Testimonials />
-      <Faq />
-      <FinalCta />
+      <Features />
+      <About />
+      <Programs />
+      <LifeAndNews />
+      <JoinAndTestimonials />
     </>
   )
 }

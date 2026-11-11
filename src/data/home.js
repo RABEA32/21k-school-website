@@ -1,116 +1,87 @@
-// Homepage content, adapted from https://www.21kschool.com/us/ (reviewed Nov 2026).
-// Photos: Unsplash (https://unsplash.com/license). They are illustrative, not of named learners.
+// Homepage content. Layout follows the office design reference; facts are 21K School's,
+// taken from https://www.21kschool.com/us/ (reviewed Nov 2026).
+// Photos: Unsplash (https://unsplash.com/license), illustrative only.
 export const img = (id, w = 1200) =>
   `https://images.unsplash.com/photo-${id}?auto=format&fit=crop&w=${w}&q=75`
 
-export const hero = {
-  badges: ['Accredited Online School', 'Indian & Cambridge Pathways', 'Live & Guided Self-Paced'],
-  tag: '#AnotherWay',
-  title: 'to School',
-  intro: 'A global K-12 learning ecosystem, built to make every child succeed.',
-  image: img('1596495578065-6e0763fa1178', 1400),
-  inset: img('1610484826967-09c5720778c7', 600),
+// shortcut: placeholder contact details, replace with the school's verified details before launch.
+export const contact = {
+  email: 'admissions@example.com',
+  phone: '+00 000 000 0000',
+  address: 'School address placeholder',
 }
 
-export const accreditations = [
-  { name: 'Cambridge International', detail: 'Centre IA702', note: 'British pathway' },
-  { name: 'Pearson Edexcel', detail: 'Centre 94883', note: 'International A Levels' },
-  { name: 'Institute for Habits of Mind', detail: 'Learning Community of Excellence', note: '16 Habits of Mind' },
+export const hero = {
+  eyebrow: 'Personalised · Flexible · Accelerated',
+  title: '#AnotherWay',
+  accent: 'to School',
+  intro: 'A global K-12 learning ecosystem, built to make every child succeed — with live classes, Indian and Cambridge pathways, and learners in 78+ countries.',
+  image: img('1594608661623-aa0bd3a69d98', 1800),
+}
+
+export const features = [
+  { icon: 'cap', label: 'Accredited Curricula' },
+  { icon: 'users', label: 'Expert Facilitators' },
+  { icon: 'book', label: 'Live & Self-Paced Learning' },
+  { icon: 'shield', label: 'Safe & Supportive Environment' },
+  { icon: 'bulb', label: 'Co-Curricular Activities' },
+  { icon: 'globe', label: 'Global Opportunities' },
 ]
+
+export const about = {
+  title: 'Another way to think about school',
+  body: 'The name 21K reverses “K–12”. We begin with the learner and design the pathway, pace, technology and human support around how each child can progress.',
+  points: [
+    'Indian and Cambridge pathways, Nursery to Grade 12',
+    'Live classes with 350+ handpicked facilitators',
+    'Personalised, flexible and accelerated learning',
+    '7 Dimensions of Success and 16 Habits of Mind',
+  ],
+  image: img('1607237138185-eedd9c632b0b', 1000),
+}
 
 export const stats = [
-  { value: 25000, suffix: '+', label: 'Learners' },
-  { value: 98, suffix: '%', label: 'Parent satisfaction' },
-  { value: 78, suffix: '+', label: 'Countries served' },
-  { value: 1, suffix: 'M+', label: 'Hours of teaching' },
+  { value: 25000, suffix: '+', label: 'Learners', icon: 'smile', tone: 'bg-gold text-navy-dark' },
+  { value: 98, suffix: '%', label: 'Parent satisfaction', icon: 'star', tone: 'bg-blue-600 text-white' },
+  { value: 78, suffix: '+', label: 'Countries served', icon: 'globe', tone: 'bg-emerald-600 text-white' },
+  { value: 1, suffix: 'M+', label: 'Hours of teaching', icon: 'clock', tone: 'bg-rose-600 text-white' },
 ]
 
-export const achieversIntro = {
-  lead: 'Look closely, and you’ll find the stars carrying the quiet victories, small triumphs and everyday wins that go far beyond the pages of a notebook.',
-  body: 'We are home to over 200 celebrated achievers across 78 countries, excelling in more than 100 domains — sports, arts, academics, dance, music and more.',
+export const programs = [
+  { title: 'Early Years', grades: 'Ages 3 – 5', body: 'Play-rich foundations for confident beginners.', icon: 'blocks', tone: 'bg-gold text-navy-dark', image: img('1516627145497-ae6968895b74', 700) },
+  { title: 'Elementary School', grades: 'Grades 1 – 5', body: 'Cambridge Primary or NCF-informed curriculum.', icon: 'book', tone: 'bg-blue-600 text-white', image: img('1577896851231-70ef18881754', 700) },
+  { title: 'Middle School', grades: 'Grades 6 – 8', body: 'Growing independence and conceptual depth.', icon: 'users', tone: 'bg-emerald-600 text-white', image: img('1529390079861-591de354faf5', 700) },
+  { title: 'High School', grades: 'Grades 9 – 12', body: 'IGCSE, A Levels or NIOS, ready for university.', icon: 'cap', tone: 'bg-violet-600 text-white', image: img('1571260899304-425eee4c7efc', 700) },
+]
+
+export const studentLife = [
+  { title: 'Sports', body: 'Sports days, tournaments and playing fields.', icon: 'ball', tone: 'bg-rose-600 text-white', image: img('1526232761682-d26e03ac148e', 700) },
+  { title: 'Arts & Culture', body: 'Music, art and performance, online and on campus.', icon: 'palette', tone: 'bg-violet-600 text-white', image: img('1525201548942-d8732f6617a0', 700) },
+  { title: 'Clubs & Activities', body: 'The Garage: robotics, coding, design and AI.', icon: 'flask', tone: 'bg-emerald-600 text-white', image: img('1531482615713-2afd69097998', 700) },
+]
+
+// Upcoming events as listed on the reference site.
+export const events = [
+  { day: '14', month: 'Nov', title: 'Sports Day at Dubai', when: 'Saturday · All day', image: img('1574629810360-7efbbe195018', 600) },
+  { day: '21', month: 'Dec', title: 'Intern School M.U.N', when: '21 – 23 Dec 2026 · All day', image: img('1524178232363-1fb2b075b655', 600) },
+  { day: '24', month: 'Dec', title: 'Social Fest', when: 'Thursday · All day', image: img('1609234656388-0ff363383899', 600) },
+  { day: '10', month: 'Jan', title: 'Carnival at Bengaluru', when: 'Sunday · All day', image: img('1517486808906-6ca8b3f04846', 600) },
+]
+
+// shortcut: placeholder testimonials, replace with verified, consented parent quotes before launch.
+export const testimonials = [
+  { quote: 'Our child used to find the school day rushed and stressful. Now there is time for learning, family and friends — and we can see the confidence growing.', who: 'Parent of a Grade 6 learner' },
+  { quote: 'The teachers are patient and engaging, and we noticed real improvement in reading within a few months. The online format fits our schedule.', who: 'Parent of two primary learners' },
+  { quote: 'Technical support is excellent, so we never worry about access. Lessons, homework and online exams are well organised.', who: 'Parent of a middle-school learner' },
+]
+
+export const cta = {
+  title: 'Ready to Join Our School?',
+  body: 'Take the first step — 20 minutes with an academic counsellor, not a salesperson.',
+  image: img('1541339907198-e08756dedf3f', 900),
 }
 
-export const achievers = [
-  { name: 'Nithila Das', title: 'Fastest girl in India on a bike', domain: 'Motorsports', image: img('1558981806-ec527fa84c39', 1200) },
-  { name: 'Manishka Dubey', title: 'Founder @TinkerTechie, TED-Ed speaker and Inventor Challenge winner', domain: 'Robotics & Science', image: img('1581092160562-40aa08e78837', 900) },
-  { name: 'Advait Kolarkar', title: 'TOI’s #UNSTOPPABLE 21 Under 21 artist', domain: 'Arts', image: img('1513364776144-60967b0f800f', 900) },
-  { name: 'Hiya Manchanda', title: '2 golds and 1 silver in breaststroke at ISSO Nationals (U-17)', domain: 'Swimming', image: img('1530549387789-4c1017266635', 900) },
-  { name: 'Hridhay Yeshwaanth Raaj', title: 'Top 20 best-selling author in India at age 7', domain: 'Literature', image: img('1456513080510-7bf3a84b82f8', 900) },
-]
-
-export const pedagogy = [
-  {
-    title: 'Personalised',
-    lead: 'A learning path that’s uniquely theirs.',
-    body: 'No two learners learn the same way, and no two futures look alike. Learning is shaped around each learner’s strengths, interests, aspirations and pace, with continuous assessment, reflection and regular feedback.',
-    pillar: 'Pedagogy grounded in a global framework',
-    image: img('1503454537195-1dcabb73ffb9', 900),
-  },
-  {
-    title: 'Flexible',
-    lead: 'Learning that fits your child’s life — not the other way around.',
-    body: 'Online learning’s greatest strength is freedom: the ability to learn on your own terms, wherever life takes you. That flexibility becomes real pathways for real lives.',
-    pillar: 'Human connections',
-    image: img('1513258496099-48168024aec0', 900),
-  },
-  {
-    title: 'Accelerated',
-    lead: 'Helping every learner move beyond expectations.',
-    body: 'Acceleration isn’t rushing through content. Learners who need support get timely intervention, and those ready for more get enrichment that extends beyond the curriculum.',
-    pillar: 'Tech & AI integration',
-    image: img('1531545514256-b1400bc00f31', 900),
-  },
-]
-
-export const dimensions = [
-  { title: 'Purpose & Values', body: 'Setting personal ethical targets and leading peer mentoring discussions.' },
-  { title: 'Health & Wellbeing', body: 'Managing examination pressure through guided stress-management tools.' },
-  { title: 'Relationships', body: 'Group projects across international cohorts spanning multiple time zones.' },
-  { title: 'Career & Passion', body: 'Direct Q&A sessions with industry leaders and research capstone projects.' },
-  { title: 'Financial Understanding', body: 'Budgeting and trade-off simulations within real-world problem scenarios.' },
-  { title: 'Impact & Community', body: 'Student-led community initiatives addressing local sustainability challenges.' },
-  { title: 'Academic Achievements', body: 'Retrieval practice, virtual laboratory experiments and board preparation.' },
-]
-
-export const ecosystem = [
-  {
-    name: '21K School Online',
-    kicker: 'Full-time online school',
-    body: 'A complete online schooling experience that combines academic excellence with the flexibility to learn from anywhere in the world — nurturing curiosity, confidence and future-ready skills.',
-    image: img('1610484826967-09c5720778c7', 900),
-    cta: 'Explore Online School',
-    to: '/online-school',
-    tone: 'bg-sky',
-  },
-  {
-    name: '21K On Campus',
-    kicker: 'Physical school',
-    body: 'A thoughtfully designed physical school rooted in the same learner-first philosophy — blending personalised learning, innovation and meaningful human connection.',
-    image: img('1577896851231-70ef18881754', 900),
-    cta: 'Explore On Campus',
-    to: '/on-campus',
-    tone: 'bg-sand',
-  },
-  {
-    name: '21K FLOWW',
-    kicker: 'Alongside any school',
-    body: 'Extra learning for Grades 1 to 12, any curriculum, with a rolling monthly intake — languages, Mastery programmes and Capstones that bring technology and pedagogy together.',
-    image: img('1588072432836-e10032774350', 900),
-    cta: 'Explore FLOWW',
-    to: '/floww',
-    tone: 'bg-[#e4efe9]',
-  },
-  {
-    name: '21K Learning Garage',
-    kicker: 'Hands-on, ages 5–18',
-    body: 'A physical space where learning goes beyond the curriculum — robotics, electronics, design, AI, coding and passion projects that build real-world capability.',
-    image: img('1485827404703-89b55fcc595e', 900),
-    cta: 'Ask about a session',
-    to: '/#contact',
-    tone: 'bg-[#f6e3dc]',
-  },
-]
-
+// Kept for the Online School page.
 export const pathways = {
   indian: {
     name: 'Indian Pathway',
@@ -130,25 +101,6 @@ export const pathways = {
     { stage: 'Senior Secondary', indian: 'NIOS Senior Secondary, Grades 11–12', british: 'Cambridge AS & A Level or Pearson Edexcel IAL', matters: 'University eligibility and subject prerequisites' },
   ],
 }
-
-export const culture = [
-  { trait: 'Thinkers', line: 'Question, reason and reflect.' },
-  { trait: 'Creators', line: 'Turn ideas into things that exist.' },
-  { trait: 'Communicators', line: 'Speak, write and listen with clarity.' },
-  { trait: 'Problem Solvers', line: 'Break big challenges into next steps.' },
-  { trait: 'Collaborators', line: 'Build with peers across time zones.' },
-  { trait: 'Leaders', line: 'Take initiative and lift others up.' },
-  { trait: 'Explorers', line: 'Follow curiosity beyond the syllabus.' },
-  { trait: 'Changemakers', line: 'Act on what matters in their community.' },
-]
-
-// shortcut: placeholder testimonials, replace with verified, consented parent quotes before launch.
-export const testimonials = [
-  { quote: 'Our child used to find the school day rushed and stressful. Now there is time for learning, family and friends — and we can see the confidence growing.', who: 'Parent of a Grade 6 learner', where: 'Placeholder testimonial' },
-  { quote: 'The teachers are patient and engaging, and we noticed real improvement in reading within a few months. The online format fits our schedule.', who: 'Parent of two primary learners', where: 'Placeholder testimonial' },
-  { quote: 'Technical support is excellent, so we never worry about access. Lessons, homework and online exams are well organised.', who: 'Parent of a middle-school learner', where: 'Placeholder testimonial' },
-  { quote: 'Our daughter has become self-motivated. She tries new things and is doing better than ever.', who: 'Parent of a secondary learner', where: 'Placeholder testimonial' },
-]
 
 export const faqs = [
   {
@@ -176,9 +128,3 @@ export const faqs = [
     a: '21K was designed as an online school, not a physical timetable moved onto video calls. Live teaching, the learning platform, feedback, assessment, progress data and learner support work together as one model.',
   },
 ]
-
-export const contact = {
-  email: 'admissions@example.com',
-  phone: '+00 000 000 0000',
-  address: 'Office address placeholder',
-}

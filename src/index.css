@@ -1,20 +1,19 @@
 @import "tailwindcss";
 
 @theme {
-  --font-display: "Fraunces", Georgia, serif;
-  --font-sans: "Manrope", ui-sans-serif, system-ui, sans-serif;
+  --font-display: "Poppins", ui-sans-serif, system-ui, sans-serif;
+  --font-sans: "Inter", ui-sans-serif, system-ui, sans-serif;
 
-  --color-ink: #13203b;
-  --color-ink-soft: #4a5672;
-  --color-cream: #faf6ef;
-  --color-sand: #f1e8d9;
-  --color-coral: #e0603f;
-  --color-coral-dark: #c24c2e;
-  --color-teal: #1d7a6c;
-  --color-gold: #e8b04b;
-  --color-sky: #dfeaf4;
+  --color-navy: #0d2a5c;
+  --color-navy-dark: #081c40;
+  --color-gold: #f7c32e;
+  --color-gold-dark: #e5ae12;
+  --color-ink: #10203f;
+  --color-muted: #5a6680;
+  --color-mist: #f3f6fb;
+  --color-line: #e3e8f1;
 
-  --shadow-card: 0 1px 2px rgb(19 32 59 / 0.04), 0 12px 32px -12px rgb(19 32 59 / 0.18);
+  --shadow-card: 0 1px 2px rgb(13 42 92 / 0.06), 0 8px 24px -10px rgb(13 42 92 / 0.18);
 }
 
 html {
@@ -22,7 +21,12 @@ html {
 }
 
 body {
-  @apply bg-cream font-sans text-ink antialiased;
+  @apply bg-white font-sans text-ink antialiased;
+}
+
+dialog::backdrop {
+  background: rgb(8 28 64 / 0.7);
+  backdrop-filter: blur(4px);
 }
 
 @media (prefers-reduced-motion: reduce) {

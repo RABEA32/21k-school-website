@@ -1,16 +1,23 @@
-import Reveal from './Reveal.jsx'
+import { Link } from 'react-router'
+import Icon from './Icon.jsx'
 
-export default function SectionHeading({ eyebrow, title, intro, align = 'left', light = false, className = '' }) {
-  const center = align === 'center'
+// Small caps label with a gold rule, plus an optional "View all →" link on the right.
+export default function SectionHeading({ label, title, link, id, light = false }) {
   return (
-    <Reveal className={`${center ? 'mx-auto text-center' : ''} max-w-3xl ${className}`}>
-      {eyebrow && (
-        <p className={`mb-4 text-xs font-bold uppercase tracking-[0.2em] ${light ? 'text-gold' : 'text-coral'}`}>{eyebrow}</p>
+    <div className="mb-5 flex flex-wrap items-end justify-between gap-x-4 gap-y-2">
+      <div>
+        <h2 id={id} className={`flex items-center gap-3 font-display text-sm font-semibold tracking-[0.18em] uppercase ${light ? 'text-white' : 'text-navy'}`}>
+          {label}
+          <span aria-hidden="true" className="h-0.5 w-8 rounded bg-gold" />
+        </h2>
+        {title && <p className={`mt-3 font-display text-3xl leading-tight font-bold sm:text-[2.1rem] ${light ? 'text-white' : 'text-navy'}`}>{title}</p>}
+      </div>
+      {link && (
+        <Link to={link.to} onClick={link.onClick} className="group flex shrink-0 items-center gap-1.5 text-sm font-semibold text-navy hover:text-gold-dark">
+          {link.label}
+          <Icon name="arrow" className="size-4 transition-transform group-hover:translate-x-1" />
+        </Link>
       )}
-      <h2 className={`font-display text-4xl leading-[1.08] font-medium text-balance sm:text-5xl ${light ? 'text-white' : 'text-ink'}`}>
-        {title}
-      </h2>
-      {intro && <p className={`mt-5 text-lg leading-relaxed ${light ? 'text-white/75' : 'text-ink-soft'}`}>{intro}</p>}
-    </Reveal>
+    </div>
   )
 }

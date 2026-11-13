@@ -1,4 +1,5 @@
 import { motion } from 'motion/react'
+import usePageMeta from '../usePageMeta.js'
 import Button, { Arrow, SmartLink } from '../components/Button.jsx'
 import Icon from '../components/Icon.jsx'
 import Reveal from '../components/Reveal.jsx'
@@ -240,6 +241,10 @@ function CtaAndReviews() {
 }
 
 export default function Home() {
+  usePageMeta(
+    'The School Built For Your Child | 21K School',
+    'Accredited K–12 online school with Indian & Cambridge pathways — live classes, expert faculty, and flexible schedules for your child.',
+  )
   return (
     <>
       <Hero />

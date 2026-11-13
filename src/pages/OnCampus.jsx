@@ -1,4 +1,5 @@
 import { Link } from 'react-router'
+import usePageMeta from '../usePageMeta.js'
 import { motion } from 'motion/react'
 import Button, { Arrow, SmartLink } from '../components/Button.jsx'
 import Icon from '../components/Icon.jsx'
@@ -518,6 +519,10 @@ function Faq() {
 }
 
 export default function OnCampus() {
+  usePageMeta(
+    '21K School, Puducherry: Now On Campus | 21K School',
+    '21K School’s new campus in Puducherry: an inaugural intake for Nursery to Grade 8, classes planned from June 2027, and a maximum of 24 learners per section.',
+  )
   return (
     <>
       <Hero />

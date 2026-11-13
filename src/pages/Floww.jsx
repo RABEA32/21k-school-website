@@ -1,4 +1,5 @@
 import { useState } from 'react'
+import usePageMeta from '../usePageMeta.js'
 import { Link } from 'react-router'
 import { AnimatePresence, motion } from 'motion/react'
 import Button, { Arrow, SmartLink } from '../components/Button.jsx'
@@ -382,6 +383,10 @@ function Ask() {
 }
 
 export default function Floww() {
+  usePageMeta(
+    'FLOWW: Strong Foundations for What Comes Next | 21K School',
+    'Live online FLOWW programmes in Mastery, Languages and Capstones that help learners strengthen essential skills and build real-world capability. Open to learners from all schools.',
+  )
   return (
     <>
       <Hero />

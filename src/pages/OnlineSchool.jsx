@@ -1,4 +1,5 @@
 import { useState } from 'react'
+import usePageMeta from '../usePageMeta.js'
 import { Link } from 'react-router'
 import { motion } from 'motion/react'
 import Button, { Arrow, SmartLink } from '../components/Button.jsx'
@@ -699,6 +700,10 @@ function IndiaAndReading() {
 }
 
 export default function OnlineSchool() {
+  usePageMeta(
+    'Online School from Nursery to Grade 12 | 21K School',
+    'Live online teaching from Nursery to Grade 12, with recognised Indian and British curriculum pathways and a school day built for structure, support and flexibility.',
+  )
   return (
     <>
       <Hero />

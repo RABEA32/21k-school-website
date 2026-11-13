@@ -2,9 +2,9 @@ import { useEffect, useRef, useState } from 'react'
 import { NavLink, useNavigate } from 'react-router'
 import { AnimatePresence, motion } from 'motion/react'
 import Logo from './Logo.jsx'
-import Button, { Arrow, SmartLink } from './Button.jsx'
+import Button, { Arrow } from './Button.jsx'
 import Icon from './Icon.jsx'
-import { externalNav, navLinks, searchIndex, socials } from '../data/navLinks.js'
+import { navLinks, searchIndex, socials } from '../data/navLinks.js'
 import { announcements, contact } from '../data/home.js'
 
 function TopBar() {
@@ -122,9 +122,6 @@ export default function Header() {
             {navLinks.map(({ to, label }) => (
               <NavLink key={to} to={to} end className={pageClass}>{label}</NavLink>
             ))}
-            {externalNav.map(({ to, label }) => (
-              <a key={to} href={to} className="py-2 text-sm font-semibold text-ink/80 hover:text-navy">{label}</a>
-            ))}
           </nav>
 
           <div className="relative flex items-center gap-2 sm:gap-3">
@@ -170,9 +167,6 @@ export default function Header() {
                   <NavLink key={to} to={to} end onClick={close} className={({ isActive }) => `rounded-lg px-4 py-3 font-semibold ${isActive ? 'bg-navy text-white' : 'text-ink hover:bg-mist'}`}>
                     {label}
                   </NavLink>
-                ))}
-                {externalNav.map(({ to, label }) => (
-                  <SmartLink key={to} to={to} className="rounded-lg px-4 py-3 font-semibold text-ink hover:bg-mist">{label}</SmartLink>
                 ))}
                 <p className="px-4 pt-2 text-xs text-muted sm:col-span-2">{announcements.cohorts} · {announcements.accredited}</p>
                 <Button to="#enquiry" onClick={close} className="mt-2 sm:col-span-2">

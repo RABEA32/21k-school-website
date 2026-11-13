@@ -79,7 +79,7 @@ export const ecosystem = {
   items: [
     { name: '21K School Online', to: '/online-school', image: '/original/family-campus.webp', tone: 'bg-sky-100', body: 'A complete online schooling experience that combines academic excellence with the flexibility to learn from anywhere in the world. Designed for learners who thrive beyond the boundaries of a traditional classroom, it nurtures curiosity, confidence, and future-ready skills.' },
     { name: '21K FLOWW', to: '/floww', image: '/original/family-floww-girl-tablet.webp', tone: 'bg-emerald-100', body: 'An innovative learning ecosystem that empowers schools, educators, and organizations with future-focused educational solutions. FLOWW brings together technology, pedagogy, and meaningful learning experiences to help institutions create engaging, flexible, and impactful education.' },
-    { name: '21K Learning Garage', to: o('/garage/'), image: '/original/family-garage-boy-circuit.webp', tone: 'bg-amber-100', body: 'A physical space where learning goes beyond the curriculum. From coding and entrepreneurship to creative arts, life skills, and passion projects, the Learning Garage helps learners discover interests, build real-world capabilities, and explore what excites them.' },
+    { name: '21K Learning Garage', to: '/garage', image: '/original/family-garage-boy-circuit.webp', tone: 'bg-amber-100', body: 'A physical space where learning goes beyond the curriculum. From coding and entrepreneurship to creative arts, life skills, and passion projects, the Learning Garage helps learners discover interests, build real-world capabilities, and explore what excites them.' },
     { name: '21K On Campus', to: '/on-campus', image: '/original/family-campus-boy-laptop.webp', tone: 'bg-violet-100', body: 'A thoughtfully designed physical school experience rooted in the same learner-first philosophy that defines 21K School. Blending personalized learning, innovation, and meaningful human connections, it reimagines what an offline school can be for today’s generation.' },
   ],
 }
@@ -167,7 +167,7 @@ export const enquiry = {
 export const footerGroups = [
   { title: '21K ecosystem', links: [
     { label: 'Online School', to: '/online-school' }, { label: 'On Campus', to: '/on-campus' },
-    { label: 'FLOWW', to: '/floww' }, { label: 'The Garage', to: o('/garage/') },
+    { label: 'FLOWW', to: '/floww' }, { label: 'The Garage', to: '/garage' },
   ] },
   { title: 'Curriculum', links: [
     { label: 'Cambridge Pathway', to: o('/online-school/curriculum/cambridge/') },
@@ -177,19 +177,19 @@ export const footerGroups = [
     { label: 'Compare Curricula', to: o('/online-school/compare-curriculum/') },
   ] },
   { title: 'Admissions', links: [
-    { label: 'Apply – Online School', to: o('/online-school/how-to-apply/') },
+    { label: 'Apply – Online School', to: '/admission' },
     { label: 'Apply – On Campus', to: o('/on-campus/how-to-apply/') },
     { label: 'Enrol – FLOWW', to: o('/floww/enrol/') },
     { label: 'Book – Garage Session', to: o('/garage/book-a-session/') },
     { label: 'Online School Fees', to: o('/online-school/fees/') },
   ] },
   { title: 'Resources', links: [
-    { label: 'Resource Library', to: o('/resources/') }, { label: 'Blog', to: o('/blog/') },
+    { label: 'Resource Library', to: o('/resources/') }, { label: 'Blog', to: '/blog' },
     { label: 'Press', to: o('/press/') }, { label: 'Learner Achievements', to: o('/learners-achievements/') },
     { label: 'Parent Reviews', to: o('/online-school-reviews/') }, { label: 'FAQs', to: o('/faqs/') },
   ] },
   { title: 'Inside 21K', links: [
-    { label: 'Another Way', to: o('/another-way/') }, { label: 'Accreditations', to: o('/affiliations-and-accreditations/') },
+    { label: 'Another Way', to: '/inside-21k' }, { label: 'Accreditations', to: o('/affiliations-and-accreditations/') },
     { label: 'Our Teachers', to: o('/our-teachers/') }, { label: 'Leadership', to: o('/leadership-and-governance/') },
     { label: 'Careers', to: o('/careers/') }, { label: 'Contact Us', to: o('/contact-us/') },
   ] },

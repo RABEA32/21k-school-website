@@ -106,7 +106,7 @@ function About() {
             <span className="font-display font-semibold text-navy">{about.by}</span>
             <span className="block text-xs text-muted">{about.role}</span>
           </p>
-          <Button to={`${ORIGIN}/another-way/`} variant="navy" className="mt-6">Another Way <Arrow /></Button>
+          <Button to="/inside-21k" variant="navy" className="mt-6">Another Way <Arrow /></Button>
         </Reveal>
 
         <Reveal delay={0.1} className="relative flex min-h-80 items-end justify-center overflow-hidden rounded-xl bg-mist">

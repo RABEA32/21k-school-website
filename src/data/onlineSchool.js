@@ -94,7 +94,7 @@ export const pathways = {
       points: ['Cambridge Early Years', 'Cambridge Primary', 'Cambridge Lower Secondary', 'Cambridge IGCSE', 'Cambridge International AS & A Level', 'Pearson Edexcel International Advanced Level for relevant Senior School programmes'],
     },
   ],
-  outro: ['Choose a school pathway, Indian or British. You can then extend the experience with ', { label: 'FLOWW', to: '/floww' }, ' and ', { label: '21K Learning Garages', to: o('/garage/') }, ', which sit alongside both pathways rather than replacing them. Learning Garage participation may involve separate registration, location restrictions and fees.'],
+  outro: ['Choose a school pathway, Indian or British. You can then extend the experience with ', { label: 'FLOWW', to: '/floww' }, ' and ', { label: '21K Learning Garages', to: '/garage' }, ', which sit alongside both pathways rather than replacing them. Learning Garage participation may involve separate registration, location restrictions and fees.'],
 }
 
 export const boards = {
@@ -350,5 +350,5 @@ export const reading = {
     { label: '15 frequently asked questions about online school', to: o('/blog/common-questions-about-online-schooling/') },
     { label: 'How many hours a day does an online school run?', to: o('/blog/how-many-hours-a-day-online-schools/') },
   ],
-  more: { label: 'Read more on our blog', to: o('/blog/') },
+  more: { label: 'Read more on our blog', to: '/blog' },
 }

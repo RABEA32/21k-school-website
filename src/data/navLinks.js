@@ -1,25 +1,18 @@
-import { ORIGIN } from './home.js'
-
-// The four redesigned pages.
+// The site's eight pages, in the original main menu's order.
 export const navLinks = [
   { to: '/', label: 'Home' },
   { to: '/online-school', label: 'Online School' },
   { to: '/on-campus', label: 'On Campus' },
   { to: '/floww', label: 'FLOWW' },
-]
-
-// The rest of the original main menu; these pages are not part of the redesign, so they link to the live site.
-export const externalNav = [
-  { to: `${ORIGIN}/garage/`, label: 'The Garage' },
-  { to: `${ORIGIN}/online-school/how-to-apply/`, label: 'Admissions' },
-  { to: `${ORIGIN}/another-way/`, label: 'Inside 21K' },
-  { to: `${ORIGIN}/blog/`, label: 'Blog' },
+  { to: '/garage', label: 'The Garage' },
+  { to: '/admission', label: 'Admissions' },
+  { to: '/inside-21k', label: 'Inside 21K' },
+  { to: '/blog', label: 'Blog' },
 ]
 
 // What the header search can jump to.
 export const searchIndex = [
   ...navLinks,
-  ...externalNav,
   { to: '/#about', label: 'Built for a global citizen' },
   { to: '/#programs', label: 'Programs' },
   { to: '/#achievers', label: 'Our achievers' },

@@ -45,7 +45,7 @@ export default function Footer() {
             <ul className="space-y-2.5 text-sm">
               <li><a href={contact.mapUrl} className={`flex gap-3 ${linkCls}`}><Icon name="pin" className="mt-0.5 size-4 shrink-0 text-navy" />{contact.address}</a></li>
               <li><a href={`mailto:${contact.email}`} className={`flex gap-3 ${linkCls}`}><Icon name="mail" className="mt-0.5 size-4 shrink-0 text-navy" />{contact.email}</a></li>
-              <li><a href={contact.whatsapp} className={`flex gap-3 ${linkCls}`}><Icon name="phone" className="mt-0.5 size-4 shrink-0 text-navy" />WhatsApp us</a></li>
+              <li><a href={`tel:${contact.phone.replace(/\s/g, '')}`} className={`flex gap-3 ${linkCls}`}><Icon name="phone" className="mt-0.5 size-4 shrink-0 text-navy" />{contact.phone}</a></li>
             </ul>
             <ul className="mt-5 flex gap-2">
               {socials.map((s) => (

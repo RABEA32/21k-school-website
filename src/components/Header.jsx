@@ -13,7 +13,7 @@ function TopBar() {
       <div className="mx-auto flex max-w-7xl items-center justify-between gap-6 px-5 py-2.5 sm:px-8">
         <ul className="flex items-center gap-6">
           <li><a href={`mailto:${contact.email}`} className="flex items-center gap-2 hover:text-gold"><Icon name="mail" className="size-3.5 text-gold" />{contact.email}</a></li>
-          <li><a href={contact.whatsapp} className="flex items-center gap-2 hover:text-gold"><Icon name="phone" className="size-3.5 text-gold" />WhatsApp us</a></li>
+          <li><a href={`tel:${contact.phone.replace(/\s/g, '')}`} className="flex items-center gap-2 hover:text-gold"><Icon name="phone" className="size-3.5 text-gold" />{contact.phone}</a></li>
           <li className="hidden lg:block"><a href={announcements.register.to} className="font-semibold text-gold hover:underline">{announcements.register.label}</a></li>
           <li className="hidden xl:block">{announcements.cohorts}</li>
         </ul>

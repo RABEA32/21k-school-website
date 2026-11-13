@@ -10,7 +10,8 @@ export const contact = {
   address: '21K School, 541, 5th Main, 16th Cross Rd, 2nd Stage, Hoysala Nagar, Indiranagar, Bengaluru, Karnataka 560038, India',
   mapUrl: 'https://www.google.com/maps/search/?api=1&query=21K%20School%2C%20541%2C%205th%20Main%2C%2016th%20Cross%20Rd%2C%202nd%20Stage%2C%20Hoysala%20Nagar%2C%20Indiranagar%2C%20Bengaluru%2C%20Karnataka%20560038%2C%20India',
   email: 'info@21kschool.com',
-  whatsapp: 'https://wa.me/918147934747',
+  // Website contact number, approved by the project owner (replaces the original WhatsApp link).
+  phone: '+93 74 866 2990',
 }
 
 // Top announcement bar.

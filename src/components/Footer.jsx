@@ -89,7 +89,7 @@ export default function Footer() {
           <p>{footerMeta.copyright} <span className="block text-white/50 sm:inline">{footerMeta.formerly}</span></p>
           <ul className="flex flex-wrap gap-x-4 gap-y-1">
             {footerMeta.legal.map((l) => (
-              <li key={l.label}><a href={l.to} className="hover:text-gold">{l.label}</a></li>
+              <li key={l.label}><a href={l.to} className="relative hover:text-gold after:absolute after:-inset-x-2 after:-inset-y-0.5">{l.label}</a></li>
             ))}
           </ul>
         </div>

@@ -35,7 +35,7 @@ export const hero = {
   image: '/original/home-cutout.webp',
   imageAlt: 'A smiling mother and her young daughter holding a tablet together',
   demo: 'Book a Live Class Demo',
-  explore: { label: 'Explore Programs', to: '/online-school' },
+  explore: { label: 'Explore Programs', to: o('/online-school/compare-curriculum/') }, // original target; not a page in this redesign
 }
 
 // Hero accreditation row (each links to the awarding body's register).

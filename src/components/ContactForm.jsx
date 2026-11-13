@@ -47,7 +47,8 @@ export default function ContactForm() {
             <label className="flex items-start gap-3 text-sm text-muted">
               <input name="consent" type="checkbox" required className="mt-1 size-4 accent-navy" />
               <span>
-                I agree to the <a href={enquiry.privacy} className="font-semibold text-navy underline">Privacy Policy</a> {enquiry.consent}
+                I agree to the <a href={enquiry.privacy} target="_blank" rel="noopener noreferrer" className="font-semibold text-navy underline">Privacy Policy<span className="sr-only"> (opens in a new tab)</span></a> {enquiry.consent}
+                <span className="sr-only"> (consent text version enquiry-consent-2026-08-21)</span>
               </span>
             </label>
             <button

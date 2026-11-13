@@ -35,7 +35,7 @@ function Hero() {
             transition={{ duration: 0.8, ease, delay: 0.1 }}
             className="mt-6 font-display text-[2.4rem] leading-[1.05] font-bold text-white min-[360px]:text-[2.75rem] min-[390px]:text-5xl sm:text-6xl lg:text-7xl"
           >
-            {hero.title}
+            {hero.title}{' '}
             <span className="block text-gold">{hero.accent}</span>
           </motion.h1>
           <motion.p initial={{ opacity: 0, y: 16 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.8, ease, delay: 0.25 }} className="mt-5 max-w-lg text-lg text-white/85">

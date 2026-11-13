@@ -72,7 +72,7 @@ function Hero() {
               transition={{ duration: 0.8, ease }}
               className="mt-5 font-display text-4xl leading-[1.08] font-bold text-white min-[360px]:text-5xl lg:text-6xl"
             >
-              {hero.title}
+              {hero.title}{' '}
               <span className="block text-gold">{hero.accent}</span>
             </motion.h1>
             <motion.p initial={{ opacity: 0, y: 16 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.8, ease, delay: 0.15 }} className="mt-5 max-w-xl text-lg text-white/85">

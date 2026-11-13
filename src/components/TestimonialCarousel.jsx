@@ -81,7 +81,7 @@ export default function TestimonialCarousel({ items, interval = 8000 }) {
             onClick={() => show(i, i > index ? 1 : -1)}
             aria-label={`Show review ${i + 1}`}
             aria-current={i === index}
-            className={`h-2 rounded-full transition-all duration-300 ${i === index ? 'w-6 bg-navy' : 'w-2 bg-navy/20 hover:bg-navy/40'}`}
+            className={`relative h-2 rounded-full transition-all after:absolute after:-inset-x-1 after:-inset-y-2 duration-300 ${i === index ? 'w-6 bg-navy' : 'w-2 bg-navy/20 hover:bg-navy/40'}`}
           />
         ))}
       </div>

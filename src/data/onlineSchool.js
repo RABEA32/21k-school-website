@@ -94,12 +94,16 @@ export const pathways = {
       points: ['Cambridge Early Years', 'Cambridge Primary', 'Cambridge Lower Secondary', 'Cambridge IGCSE', 'Cambridge International AS & A Level', 'Pearson Edexcel International Advanced Level for relevant Senior School programmes'],
     },
   ],
-  outro: ['Choose a school pathway, Indian or British. You can then extend the experience with ', { label: 'FLOWW', to: '/floww' }, ' and ', { label: '21K Learning Garages', to: o('/garage/') }, '.'],
+  outro: ['Choose a school pathway, Indian or British. You can then extend the experience with ', { label: 'FLOWW', to: '/floww' }, ' and ', { label: '21K Learning Garages', to: o('/garage/') }, ', which sit alongside both pathways rather than replacing them. Learning Garage participation may involve separate registration, location restrictions and fees.'],
 }
 
 export const boards = {
   title: 'NCF, NIOS or Cambridge: Which board suits your child?',
   hint: 'Scroll the table sideways to compare every column',
+  note: {
+    lead: 'Where CBSE is the better fit.',
+    body: '21K School is not affiliated with CBSE, and an NCF-informed curriculum is not a CBSE affiliation. If your child needs a CBSE certificate specifically — because a school they may transfer back into requires it, or because an entrance route your family is set on names that board — a CBSE school is the right answer.',
+  },
   columns: ['NCF-informed (Grades 1–8)', 'NIOS (Grades 9–12)', 'Cambridge (Primary to A Level)'],
   rows: [
     ['Recognition in India', 'The framework every national and state board follows, set by NCERT', 'A national board under the Ministry of Education, Government of India', 'Recognised by Indian universities; check the specific course’s own eligibility rule'],

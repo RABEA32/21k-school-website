@@ -275,6 +275,7 @@ function Boards() {
             ))}
           </tbody>
         </Table>
+        <p className="mt-4 text-sm text-muted"><strong className="text-navy">{boards.note.lead}</strong> {boards.note.body}</p>
       </div>
     </section>
   )

@@ -1,34 +1,32 @@
 import { useEffect, useRef, useState } from 'react'
-import { Link, NavLink, useNavigate } from 'react-router'
+import { NavLink, useNavigate } from 'react-router'
 import { AnimatePresence, motion } from 'motion/react'
 import Logo from './Logo.jsx'
-import Button, { Arrow } from './Button.jsx'
+import Button, { Arrow, SmartLink } from './Button.jsx'
 import Icon from './Icon.jsx'
-import { navLinks, searchIndex, sectionLinks, socials } from '../data/navLinks.js'
-import { contact } from '../data/home.js'
-
-const portals = ['Parent Portal', 'Student Portal', 'Alumni']
+import { externalNav, navLinks, searchIndex, socials } from '../data/navLinks.js'
+import { announcements, contact } from '../data/home.js'
 
 function TopBar() {
   return (
     <div className="hidden bg-navy-dark text-xs whitespace-nowrap text-white/85 md:block">
       <div className="mx-auto flex max-w-7xl items-center justify-between gap-6 px-5 py-2.5 sm:px-8">
         <ul className="flex items-center gap-6">
-          <li className="hidden items-center gap-2 lg:flex"><Icon name="pin" className="size-3.5 text-gold" />{contact.address}</li>
-          <li><a href={`tel:${contact.phone.replace(/\s/g, '')}`} className="flex items-center gap-2 hover:text-gold"><Icon name="phone" className="size-3.5 text-gold" />{contact.phone}</a></li>
           <li><a href={`mailto:${contact.email}`} className="flex items-center gap-2 hover:text-gold"><Icon name="mail" className="size-3.5 text-gold" />{contact.email}</a></li>
+          <li><a href={contact.whatsapp} className="flex items-center gap-2 hover:text-gold"><Icon name="phone" className="size-3.5 text-gold" />WhatsApp us</a></li>
+          <li className="hidden lg:block"><a href={announcements.register.to} className="font-semibold text-gold hover:underline">{announcements.register.label}</a></li>
+          <li className="hidden xl:block">{announcements.cohorts}</li>
         </ul>
         <div className="flex items-center gap-5">
-          <ul className="flex items-center divide-x divide-white/25" aria-label="Portals (coming soon)">
-            {portals.map((p) => (
-              <li key={p} className="px-3 first:pl-0" title="Coming soon">{p}</li>
+          <ul className="flex items-center divide-x divide-white/25">
+            {announcements.portals.map((p) => (
+              <li key={p.label} className="px-3 first:pl-0"><a href={p.to} className="hover:text-gold">{p.label}</a></li>
             ))}
           </ul>
-          <ul className="flex items-center gap-3" aria-label="Social media (links coming soon)">
+          <ul className="flex items-center gap-3">
             {socials.map((s) => (
-              <li key={s.name} title={`${s.name} — link coming soon`}>
-                <Icon name={s.icon} className="size-4" />
-                <span className="sr-only">{s.name}</span>
+              <li key={s.name}>
+                <a href={s.to} aria-label={`21K School on ${s.name}`} className="block hover:text-gold"><Icon name={s.icon} className="size-4" /></a>
               </li>
             ))}
           </ul>
@@ -46,7 +44,8 @@ function Search({ onDone }) {
   const results = searchIndex.filter((l) => l.label.toLowerCase().includes(q.trim().toLowerCase()))
 
   const go = (to) => {
-    navigate(to)
+    if (to.startsWith('http')) window.location.href = to
+    else navigate(to)
     onDone()
   }
 
@@ -116,15 +115,15 @@ export default function Header() {
     <>
       <TopBar />
       <header className={`sticky top-0 z-50 bg-white transition-shadow duration-300 ${scrolled ? 'shadow-[0_6px_24px_-12px_rgb(13_42_92/0.35)]' : 'border-b border-line'}`}>
-        <div className={`mx-auto flex max-w-7xl items-center justify-between gap-3 px-4 sm:gap-6 sm:px-5 transition-all duration-300 md:px-8 ${scrolled ? 'py-2.5' : 'py-4'}`}>
-          <Logo />
+        <div className={`mx-auto flex max-w-7xl items-center justify-between gap-3 px-4 transition-all duration-300 sm:gap-6 sm:px-5 md:px-8 ${scrolled ? 'py-2.5' : 'py-3.5'}`}>
+          <Logo className="h-10 sm:h-11" />
 
-          <nav aria-label="Main" className="hidden items-center gap-7 xl:flex">
+          <nav aria-label="Main" className="hidden items-center gap-6 xl:flex">
             {navLinks.map(({ to, label }) => (
               <NavLink key={to} to={to} end className={pageClass}>{label}</NavLink>
             ))}
-            {sectionLinks.map(({ to, label }) => (
-              <Link key={to} to={to} className="py-2 text-sm font-semibold text-ink/80 hover:text-navy">{label}</Link>
+            {externalNav.map(({ to, label }) => (
+              <a key={to} href={to} className="py-2 text-sm font-semibold text-ink/80 hover:text-navy">{label}</a>
             ))}
           </nav>
 
@@ -139,8 +138,8 @@ export default function Header() {
               <Icon name="search" />
             </button>
             <AnimatePresence>{searching && <Search onDone={() => setSearching(false)} />}</AnimatePresence>
-            <Button to="#apply" className="max-sm:hidden">
-              Apply Now <Arrow />
+            <Button to="#enquiry" className="max-sm:hidden">
+              Book a call <Arrow />
             </Button>
             <button
               type="button"
@@ -172,11 +171,12 @@ export default function Header() {
                     {label}
                   </NavLink>
                 ))}
-                {sectionLinks.map(({ to, label }) => (
-                  <Link key={to} to={to} onClick={close} className="rounded-lg px-4 py-3 font-semibold text-ink hover:bg-mist">{label}</Link>
+                {externalNav.map(({ to, label }) => (
+                  <SmartLink key={to} to={to} className="rounded-lg px-4 py-3 font-semibold text-ink hover:bg-mist">{label}</SmartLink>
                 ))}
-                <Button to="#apply" onClick={close} className="mt-2 sm:col-span-2">
-                  Apply Now <Arrow />
+                <p className="px-4 pt-2 text-xs text-muted sm:col-span-2">{announcements.cohorts} · {announcements.accredited}</p>
+                <Button to="#enquiry" onClick={close} className="mt-2 sm:col-span-2">
+                  Book a call <Arrow />
                 </Button>
               </div>
             </motion.nav>

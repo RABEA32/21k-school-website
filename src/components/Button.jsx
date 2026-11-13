@@ -8,15 +8,20 @@ const styles = {
   outlineDark: 'border border-navy/25 text-navy hover:border-navy hover:bg-navy hover:text-white',
 }
 
+// Router link for our pages and #hashes; plain <a> for the live site, mailto: and other origins.
+export function SmartLink({ to, ...props }) {
+  return /^(https?:|mailto:|tel:)/.test(to) ? <a href={to} {...props} /> : <Link to={to} {...props} />
+}
+
 export default function Button({ to, variant = 'gold', className = '', children, ...props }) {
   return (
-    <Link
+    <SmartLink
       to={to}
       className={`group inline-flex items-center justify-center gap-2 rounded-md px-5 py-3 text-sm font-semibold transition-all duration-300 hover:-translate-y-0.5 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-gold ${styles[variant]} ${className}`}
       {...props}
     >
       {children}
-    </Link>
+    </SmartLink>
   )
 }
 

@@ -1,31 +1,14 @@
 import { useState } from 'react'
-import { Link } from 'react-router'
 import Logo from './Logo.jsx'
 import Icon from './Icon.jsx'
-import { navLinks, sectionLinks, socials } from '../data/navLinks.js'
-import { contact } from '../data/home.js'
+import { SmartLink } from './Button.jsx'
+import { socials } from '../data/navLinks.js'
+import { contact, footerGroups, footerMeta } from '../data/home.js'
 
-const usefulInfo = [
-  { to: '/online-school', label: 'Online School Admissions' },
-  { to: '/on-campus', label: 'Campus Visits' },
-  { to: '/floww', label: 'FLOWW Enrolment' },
-  { to: '#apply', label: 'Book a Call' },
-  { to: '#tour', label: 'Virtual Tour' },
-]
-
-const year = new Date().getFullYear()
 const linkCls = 'text-muted transition-colors hover:text-navy'
 
-function Column({ title, children, id }) {
-  return (
-    <div id={id} className="scroll-mt-28">
-      <h3 className="mb-4 font-display text-sm font-semibold text-navy">{title}</h3>
-      <ul className="space-y-2.5 text-sm">{children}</ul>
-    </div>
-  )
-}
-
-function Newsletter() {
+// Frontend only: confirms locally; the real subscription needs the site's backend.
+function Digest() {
   const [done, setDone] = useState(false)
   if (done) {
     return (
@@ -42,8 +25,8 @@ function Newsletter() {
       }}
       className="flex gap-2"
     >
-      <label className="sr-only" htmlFor="newsletter-email">Email address</label>
-      <input id="newsletter-email" type="email" required placeholder="Your email address" className="min-w-0 flex-1 rounded-md border border-line px-3 py-2.5 text-sm outline-none focus:border-navy" />
+      <label className="sr-only" htmlFor="digest-email">Email address</label>
+      <input id="digest-email" type="email" required placeholder="Email address" className="min-w-0 flex-1 rounded-md border border-line px-3 py-2.5 text-sm outline-none focus:border-navy" />
       <button type="submit" className="flex items-center gap-1.5 rounded-md bg-gold px-4 py-2.5 text-sm font-semibold text-navy-dark hover:bg-gold-dark">
         Subscribe <Icon name="arrow" className="size-4" />
       </button>
@@ -54,50 +37,61 @@ function Newsletter() {
 export default function Footer() {
   return (
     <footer className="border-t border-line bg-white">
-      <div className="mx-auto grid max-w-7xl grid-cols-1 gap-10 px-5 py-14 sm:grid-cols-2 sm:px-8 lg:grid-cols-3 xl:grid-cols-[1.3fr_0.9fr_1fr_1.1fr_1.5fr]">
-        <div>
-          <Logo />
-          <p className="mt-4 max-w-xs text-sm text-muted">Another way to school. A global K-12 learning ecosystem, built to make every child succeed.</p>
-          <ul className="mt-5 flex gap-2" aria-label="Social media (links coming soon)">
-            {socials.map((s) => (
-              <li key={s.name} title={`${s.name} — link coming soon`} className="grid size-9 place-items-center rounded-full bg-navy text-white">
-                <Icon name={s.icon} className="size-4" />
-                <span className="sr-only">{s.name}</span>
-              </li>
-            ))}
-          </ul>
+      <div className="mx-auto max-w-7xl px-5 py-14 sm:px-8">
+        <div className="grid grid-cols-1 gap-10 sm:grid-cols-2 lg:grid-cols-[1.3fr_repeat(5,1fr)]">
+          <div id="contact" className="scroll-mt-28 sm:col-span-2 lg:col-span-1">
+            <Logo />
+            <h3 className="mt-6 mb-2 font-display text-sm font-semibold text-navy">Registered office</h3>
+            <ul className="space-y-2.5 text-sm">
+              <li><a href={contact.mapUrl} className={`flex gap-3 ${linkCls}`}><Icon name="pin" className="mt-0.5 size-4 shrink-0 text-navy" />{contact.address}</a></li>
+              <li><a href={`mailto:${contact.email}`} className={`flex gap-3 ${linkCls}`}><Icon name="mail" className="mt-0.5 size-4 shrink-0 text-navy" />{contact.email}</a></li>
+              <li><a href={contact.whatsapp} className={`flex gap-3 ${linkCls}`}><Icon name="phone" className="mt-0.5 size-4 shrink-0 text-navy" />WhatsApp us</a></li>
+            </ul>
+            <ul className="mt-5 flex gap-2">
+              {socials.map((s) => (
+                <li key={s.name}>
+                  <a href={s.to} aria-label={`21K School on ${s.name}`} className="grid size-9 place-items-center rounded-full bg-navy text-white transition hover:bg-gold hover:text-navy-dark">
+                    <Icon name={s.icon} className="size-4" />
+                  </a>
+                </li>
+              ))}
+            </ul>
+          </div>
+
+          {footerGroups.map((g) => (
+            <div key={g.title}>
+              <h3 className="mb-4 font-display text-sm font-semibold text-navy">{g.title}</h3>
+              <ul className="space-y-2.5 text-sm">
+                {g.links.map((l) => (
+                  <li key={l.label}><SmartLink to={l.to} className={linkCls}>{l.label}</SmartLink></li>
+                ))}
+              </ul>
+            </div>
+          ))}
         </div>
 
-        <Column title="Quick Links">
-          {[...navLinks, ...sectionLinks].map(({ to, label }) => (
-            <li key={to}><Link to={to} className={linkCls}>{label}</Link></li>
-          ))}
-        </Column>
-
-        <Column title="Useful Information">
-          {usefulInfo.map(({ to, label }) => (
-            <li key={label}><Link to={to} className={linkCls}>{label}</Link></li>
-          ))}
-        </Column>
-
-        <Column title="Contact Us" id="contact">
-          <li className="flex gap-3 text-muted"><Icon name="pin" className="mt-0.5 size-4 shrink-0 text-navy" />{contact.address}</li>
-          <li><a href={`tel:${contact.phone.replace(/\s/g, '')}`} className={`flex gap-3 ${linkCls}`}><Icon name="phone" className="mt-0.5 size-4 shrink-0 text-navy" />{contact.phone}</a></li>
-          <li><a href={`mailto:${contact.email}`} className={`flex gap-3 ${linkCls}`}><Icon name="mail" className="mt-0.5 size-4 shrink-0 text-navy" />{contact.email}</a></li>
-          <li className="text-xs text-muted/70">Contact details are placeholders.</li>
-        </Column>
-
-        <div>
-          <h3 className="mb-2 font-display text-sm font-semibold text-navy">Subscribe to Our Newsletter</h3>
-          <p className="mb-4 text-sm text-muted">Learning insights, learner stories and news.</p>
-          <Newsletter />
+        <div className="mt-12 grid grid-cols-1 gap-6 border-t border-line pt-8 md:grid-cols-[1fr_auto] md:items-end">
+          <div className="max-w-md">
+            <h3 className="font-display text-sm font-semibold text-navy">{footerMeta.digest.title}</h3>
+            <p className="mt-1 mb-4 text-sm text-muted">{footerMeta.digest.body}</p>
+            <Digest />
+          </div>
+          <ul className="flex flex-wrap gap-x-6 gap-y-2 text-sm font-semibold">
+            {[footerMeta.apps, footerMeta.parentHub].map((l) => (
+              <li key={l.label}><a href={l.to} className="text-navy hover:text-gold-dark">{l.label}</a></li>
+            ))}
+          </ul>
         </div>
       </div>
 
       <div className="bg-navy-dark text-xs text-white/75">
-        <div className="mx-auto flex max-w-7xl flex-col gap-2 px-5 py-4 sm:flex-row sm:items-center sm:justify-between sm:px-8">
-          <p>© {year} 21K School website project. Content adapted from 21kschool.com. Photography via Unsplash.</p>
-          <p className="flex items-center gap-3">#AnotherWay to School <span aria-hidden="true" className="h-0.5 w-8 rounded bg-gold" /></p>
+        <div className="mx-auto flex max-w-7xl flex-col gap-3 px-5 py-4 sm:px-8 lg:flex-row lg:items-center lg:justify-between">
+          <p>{footerMeta.copyright} <span className="block text-white/50 sm:inline">{footerMeta.formerly}</span></p>
+          <ul className="flex flex-wrap gap-x-4 gap-y-1">
+            {footerMeta.legal.map((l) => (
+              <li key={l.label}><a href={l.to} className="hover:text-gold">{l.label}</a></li>
+            ))}
+          </ul>
         </div>
       </div>
     </footer>

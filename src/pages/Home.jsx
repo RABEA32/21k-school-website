@@ -32,7 +32,7 @@ function Hero() {
             initial={{ opacity: 0, y: 24 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, ease, delay: 0.1 }}
-            className="mt-6 font-display text-[2.6rem] leading-[1.05] font-bold text-white min-[360px]:text-5xl sm:text-6xl lg:text-7xl"
+            className="mt-6 font-display text-[2.4rem] leading-[1.05] font-bold text-white min-[360px]:text-[2.75rem] min-[390px]:text-5xl sm:text-6xl lg:text-7xl"
           >
             {hero.title}
             <span className="block text-gold">{hero.accent}</span>
@@ -76,7 +76,7 @@ function Hero() {
 function Pedagogy() {
   return (
     <section aria-label="Our learning pedagogy" className={`${wrap} relative z-10 -mt-14`}>
-      <Reveal as="ul" y={30} className="grid grid-cols-2 gap-px overflow-hidden rounded-xl bg-line shadow-card sm:grid-cols-3 lg:grid-cols-6">
+      <Reveal as="ul" y={30} className="grid grid-cols-1 gap-px overflow-hidden rounded-xl bg-line shadow-card min-[360px]:grid-cols-2 sm:grid-cols-3 lg:grid-cols-6">
         {pedagogy.map((p) => (
           <li key={p.label} className="group flex gap-3 bg-white p-4 sm:p-5">
             <span className="text-navy transition-transform duration-300 group-hover:-translate-y-0.5 group-hover:text-gold-dark">

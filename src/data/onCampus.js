@@ -17,8 +17,8 @@ export const hero = {
   intro: 'The inaugural intake will be for Nursery to Grade 8, with classes planned from June 2027. Grades 9–12 will be introduced progressively, subject to statutory permissions and CISCE requirements.',
   register: 'Register Your Interest',
   stages: 'Learning by Stage',
-  image: `${A}/on-campus-front-elevation.webp`,
-  imageAlt: '21K School, Puducherry — front elevation of the campus building',
+  image: '/photos/hero-on-campus.webp',
+  imageAlt: 'Young learners smiling at their classroom desks',
   figures: [
     { value: '4.5', label: 'Acre campus' },
     { value: '32,000', label: 'Sq ft built-up space (approx.)' },

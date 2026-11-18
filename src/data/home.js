@@ -32,8 +32,8 @@ export const hero = {
   title: '#AnotherWay',
   accent: 'to School',
   intro: 'A global K-12 learning ecosystem, built to make every child succeed.',
-  image: '/original/home-cutout.webp',
-  imageAlt: 'A smiling mother and her young daughter holding a tablet together',
+  image: '/photos/hero-home.webp',
+  imageAlt: 'Two learners programming a robot car on a laptop',
   demo: 'Book a Live Class Demo',
   explore: { label: 'Explore Programs', to: o('/online-school/compare-curriculum/') }, // original target; not a page in this redesign
 }

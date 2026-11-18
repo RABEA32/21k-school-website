@@ -65,9 +65,9 @@ function Hero() {
           src={hero.image}
           alt={hero.imageAlt}
           fetchPriority="high"
-          width="739"
-          height="1035"
-          className="mx-auto hidden max-h-[34rem] w-auto self-end lg:block"
+          width="898"
+          height="731"
+          className="mx-auto hidden max-h-[34rem] w-auto max-w-full self-center rounded-3xl object-cover shadow-2xl ring-4 ring-white/90 lg:block"
         />
       </div>
     </section>

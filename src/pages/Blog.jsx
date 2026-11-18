@@ -47,7 +47,7 @@ export default function Blog() {
         title="Blog &" accent="News"
         text="Guides, curriculum deep-dives, and parent stories from the 21K School community."
         actions={<Btn href={ext('/blog/')}>Browse all articles</Btn>}
-        img={IMG.blogHero} imgAlt="A learner taking notes on a tablet beside her laptop"
+        img={IMG.blogHero} imgAlt="A learner highlighting her printed notes at a table"
       />
 
       <Section>

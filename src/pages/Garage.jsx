@@ -54,11 +54,11 @@ export default function Garage() {
         text="A physical learning space where learners aged 5–18 use real tools, kits and code to turn ideas into working projects."
         actions={<><Btn href={ext('/garage/book-a-session/')}>Book a Session</Btn><Btn href={ext('/garage/modules-by-age/')} variant="ghost">Modules by Age</Btn></>}
         note="We welcome learners from all schools — you don’t need to be a 21K School learner to book a Garage session."
-        img={IMG.garageHero} imgAlt="A proud boy in safety goggles holding a small robot he built"
+        img={IMG.garageHero} imgAlt="A learner designing a social media post on her laptop"
       />
       <Strip items={[['5–18', 'Learner ages'], ['5', 'Pathways'], ['90', 'Minutes a session'], ['5', 'Centres']]} />
 
-      <Split eyebrow="The Garage" title="A place for learning with your hands" img={IMG.garageTeam} alt="Two learners program a robot car on a laptop">
+      <Split eyebrow="The Garage" title="A place for learning with your hands" img={IMG.garageTeam} alt="A mentor guides three learners building a robot">
         <p>The Garage adds a physical, project-based space to the 21K learning ecosystem.</p>
         <p>Learners build, test, debug and demonstrate. A session may involve programming a robot, modelling a part for 3D printing, wiring a circuit, creating a game or connecting a sensor to an intelligent response. The work is practical, but the thinking behind it is equally important.</p>
         <p>The Garage is open to 21K learners and children from other schools. Programmes are delivered in person at standalone centres. The curriculum is organised into five pathways: Robotics + Design, Coding + Gaming, Electronics, AI + IoT, and Capstone + Tinkering.</p>

@@ -7,8 +7,8 @@ const G = `${O}/pages/garage/`
 export const IMG = {
   logo: `${O}/figma/logo-21k-official-h144.webp`,
 
-  garageHero: `${O}/images/garage-cutout.webp`,
-  garageTeam: '/photos/garage-learners-robot-laptop.webp',
+  garageHero: '/photos/hero-garage.webp',
+  garageTeam: `${G}robotics-team.webp`,
   garageCircuit: `${G}circuit-learner.webp`,
   garageSpace: `${G}space.webp`,
   garageBuild: `${G}build-session.webp`,
@@ -25,17 +25,16 @@ export const IMG = {
     ['garage-learners-test-a-robot.webp', 'Learners test their robot cars'],
   ].map(([f, alt]) => ({ src: G + f, alt })),
 
-  blogHero: '/photos/learner-laptop-tablet.webp',
-
-  applyHero: `${O}/images/online-school/how-to-apply-screen-cutout.webp`,
+  applyHero: '/photos/hero-admission.webp',
+  blogHero: '/photos/hero-blog.webp',
   applyCall: `${O}/pages/learner-led-podcast/banner.jpg`,
-  applyDocs: '/photos/learner-reviewing-documents.webp',
+  applyDocs: `${O}/images/sections/teen-girl-notebook-cutout.webp`,
 
-  anotherHero: '/photos/learners-walking-to-school.webp',
+  anotherHero: '/photos/hero-inside-21k.webp',
   brochure: `${O}/pages/another-way/21k-school-legacy-brochure-cover.webp`,
-  learner23: '/photos/learner-laptop-calculator.webp',
+  learner23: `${O}/pages/real/learner-23.webp`,
   learner45: `${O}/pages/real/learner-45.webp`,
-  girl: '/photos/learner-tablet-notes.webp',
+  girl: `${O}/figma/sec/family-garage-girl.webp`,
   group: `${O}/pages/21k-group/21k-group.jpeg`,
   outing: `${O}/pages/british/find-your-path-web.jpg`,
 }

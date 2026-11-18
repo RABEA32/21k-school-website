@@ -87,10 +87,10 @@ function Hero() {
           transition={{ duration: 1, ease, delay: 0.2 }}
           src={hero.image}
           alt={hero.imageAlt}
-          width="727"
-          height="999"
+          width="776"
+          height="1021"
           fetchPriority="high"
-          className="mx-auto hidden max-h-[36rem] w-auto self-end lg:block"
+          className="mx-auto hidden max-h-[36rem] w-auto max-w-full self-center rounded-3xl object-cover shadow-2xl ring-4 ring-white/90 lg:block"
         />
       </div>
     </section>

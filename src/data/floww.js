@@ -27,8 +27,8 @@ export const hero = {
     { value: '5', label: 'Capstones' },
     { value: '2,000+', label: 'Learners enrolled since launch' },
   ],
-  image: `${A}/floww-cutout.webp`,
-  imageAlt: 'A grinning girl with headphones around her neck holding a tablet',
+  image: '/photos/hero-floww.webp',
+  imageAlt: 'A learner working through maths with a notebook, calculator and laptop',
 }
 
 export const what = {
@@ -85,7 +85,7 @@ export const join = {
     'A learner’s age or grade establishes the appropriate cohort. Previous learning, readiness and any required diagnostic determine the starting level.',
   ],
   photos: [
-    { src: '/photos/learner-design-laptop.webp', alt: 'A learner designing a social media post on her laptop' },
+    { src: `${A}/p-171.webp`, alt: 'A learner reading a book at home' },
     { src: `${A}/p-012.webp`, alt: 'A young learner holding an open book' },
   ],
   mastery: { label: 'Mastery', value: 'Ages 6–13' },

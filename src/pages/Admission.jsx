@@ -15,7 +15,7 @@ const STEPS = [
   { n: 3, t: 'Apply and share your documents', short: 'Apply + documents', act: 'Upload age proof, identity records, and prior mark sheets.', dur: '1 Day',
     sub: 'Identity, age and academic records, depending on grade and pathway.',
     body: ['Complete the online application form and upload the required identity, age, and academic records.', 'Required documents typically include a birth certificate or passport for age verification, along with previous report cards or transfer certificates for academic continuity. Documents are submitted through our encrypted, secure online upload portal to protect your family’s data privacy.'],
-    cta: ['What You’ll Need', '/online-school/what-you-will-need/'], img: IMG.applyDocs, alt: 'A learner highlighting her printed documents at a table' },
+    cta: ['What You’ll Need', '/online-school/what-you-will-need/'], img: IMG.applyDocs, alt: 'A smiling teenage learner writing in her notebook' },
   { n: 4, t: 'Academic review for Grades 9–12', short: 'Academic review', act: 'Senior academic conversation regarding subject prerequisites.', dur: '1–2 Days',
     sub: 'A conversation about previous results, subjects and pathway, before board registration.',
     body: ['For High School enrolments (Grades 9 to 12), an academic advisor conducts a transcript review and a structured academic conversation. This review confirms that your child meets subject prerequisites for official Board registration (such as Cambridge IGCSE/A Levels, Pearson Edexcel, or NIOS).', 'Direct admission into Grade 10 or Grade 12 is not normally offered due to formal Board registration schedules and continuous assessment cycles.'] },
@@ -106,7 +106,7 @@ export default function Admission() {
         title="How to Apply to" accent="21K School in Six Steps"
         text="From your first call to your child’s first day, with what happens at each step."
         actions={<><Btn href={ext('/admissions/apply-now/')}>Apply now</Btn><Btn href={ext('/online-school/book-a-call/')} variant="ghost">Book a call</Btn></>}
-        img={IMG.applyHero} imgAlt="A girl applying on a laptop with her father beside her"
+        img={IMG.applyHero} imgAlt="A learner taking notes on a tablet beside her laptop"
       />
 
       <Section>

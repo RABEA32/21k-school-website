@@ -23,8 +23,8 @@ export const hero = {
   ],
   verify: 'How to verify these',
   rating: { value: '4.4', label: 'from 636 Google ratings', to: o('/online-school-reviews/') },
-  image: `${A}/online-school-cutout.webp`,
-  imageAlt: 'A smiling girl holding an open laptop',
+  image: '/photos/hero-online-school.webp',
+  imageAlt: 'A learner taking notes beside her tablet',
 }
 
 export const facts = {

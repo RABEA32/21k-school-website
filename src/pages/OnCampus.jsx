@@ -85,7 +85,7 @@ function Hero() {
           </div>
           <motion.div initial={{ opacity: 0, scale: 0.96 }} animate={{ opacity: 1, scale: 1 }} transition={{ duration: 0.9, ease, delay: 0.1 }} className="relative">
             <div aria-hidden="true" className="absolute -inset-3 rounded-[2rem] bg-gold/20 max-sm:hidden" />
-            <img src={hero.image} alt={hero.imageAlt} width="1600" height="900" fetchPriority="high" className="relative aspect-video w-full rounded-3xl object-cover shadow-2xl ring-4 ring-white/90" />
+            <img src={hero.image} alt={hero.imageAlt} width="863" height="557" fetchPriority="high" className="relative aspect-video w-full rounded-3xl object-cover shadow-2xl ring-4 ring-white/90" />
           </motion.div>
         </div>
 

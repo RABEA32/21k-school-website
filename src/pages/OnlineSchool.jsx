@@ -98,7 +98,7 @@ function Hero() {
           </div>
         </div>
 
-        <img src={hero.image} alt={hero.imageAlt} width="738" height="1058" fetchPriority="high" className="hidden max-h-[30rem] w-auto self-end xl:block" />
+        <img src={hero.image} alt={hero.imageAlt} width="726" height="1006" fetchPriority="high" className="hidden max-h-[30rem] w-auto max-w-full self-center rounded-3xl object-cover shadow-2xl ring-4 ring-white/90 xl:block" />
 
         <motion.div initial={{ opacity: 0, y: 30 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.8, ease, delay: 0.2 }} className="self-center rounded-2xl shadow-2xl">
           <ContactForm />

@@ -58,7 +58,7 @@ export default function Garage() {
       />
       <Strip items={[['5–18', 'Learner ages'], ['5', 'Pathways'], ['90', 'Minutes a session'], ['5', 'Centres']]} />
 
-      <Split eyebrow="The Garage" title="A place for learning with your hands" img={IMG.garageTeam} alt="A mentor guides three learners building a robot">
+      <Split eyebrow="The Garage" title="A place for learning with your hands" img={IMG.garageTeam} alt="Two learners program a robot car on a laptop">
         <p>The Garage adds a physical, project-based space to the 21K learning ecosystem.</p>
         <p>Learners build, test, debug and demonstrate. A session may involve programming a robot, modelling a part for 3D printing, wiring a circuit, creating a game or connecting a sensor to an intelligent response. The work is practical, but the thinking behind it is equally important.</p>
         <p>The Garage is open to 21K learners and children from other schools. Programmes are delivered in person at standalone centres. The curriculum is organised into five pathways: Robotics + Design, Coding + Gaming, Electronics, AI + IoT, and Capstone + Tinkering.</p>

@@ -42,6 +42,8 @@
 .zip-page .lead{font-size:1.05rem;color:#dbe5ff;max-width:560px}
 .zip-page .hero-note{margin-top:18px;font-size:.9rem;color:#c3d2f5;border-left:3px solid var(--yellow);padding-left:12px;max-width:520px}
 .zip-page .hero-img{max-height:440px;width:100%;object-fit:contain;margin-inline:auto}
+/* Hero photos (not cut-outs): frame the picture itself, not the contain box around it. */
+.zip-page .hero-img[src^="/photos/"]{width:auto;max-width:100%;border-radius:var(--r);box-shadow:0 18px 40px rgba(0,0,0,.28)}
 .zip-page .eyebrow{display:flex;align-items:center;gap:10px;font-size:.75rem;font-weight:700;letter-spacing:.2em;text-transform:uppercase}
 .zip-page .eyebrow::after{content:"";width:28px;height:2px;background:var(--yellow)}
 .zip-page .eyebrow.dark{color:var(--muted);margin-bottom:10px}

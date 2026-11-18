@@ -1,7 +1,7 @@
 import { useMemo, useState } from 'react'
 import { Search, ArrowRight } from 'lucide-react'
 import { PageHero, Section, Img, Btn, ext } from '../components/ui.jsx'
-import { blogImg } from '../data/images.js'
+import { IMG, blogImg } from '../data/images.js'
 import usePageMeta from '../usePageMeta.js'
 
 const CATS = ['AI in Education', 'Activities', 'Admissions', 'CAMBRIDGE', 'CISCE', 'Classroom', 'Curriculum Guide', 'Education', 'Education Trends', 'Examination', 'Experiment', 'Featured', 'Flexible Learning', 'GCSE', 'Homeschooling', 'IGCSE', 'Indian', 'Inspiration', 'Language', 'Learning', 'NIOS', 'Online Learning', 'Online School', 'Parenting', 'Preschool', 'Recession', 'School Statistics', 'Skills', 'Social Emotional Learning', 'Special Education', 'Student Wellbeing', 'Teaching', 'Technology', 'Time Management', 'Uncategorized', 'Universities']
@@ -47,6 +47,7 @@ export default function Blog() {
         title="Blog &" accent="News"
         text="Guides, curriculum deep-dives, and parent stories from the 21K School community."
         actions={<Btn href={ext('/blog/')}>Browse all articles</Btn>}
+        img={IMG.blogHero} imgAlt="A learner taking notes on a tablet beside her laptop"
       />
 
       <Section>

@@ -85,7 +85,7 @@ export const join = {
     'A learner’s age or grade establishes the appropriate cohort. Previous learning, readiness and any required diagnostic determine the starting level.',
   ],
   photos: [
-    { src: `${A}/p-171.webp`, alt: 'A learner reading a book at home' },
+    { src: '/photos/learner-design-laptop.webp', alt: 'A learner designing a social media post on her laptop' },
     { src: `${A}/p-012.webp`, alt: 'A young learner holding an open book' },
   ],
   mastery: { label: 'Mastery', value: 'Ages 6–13' },

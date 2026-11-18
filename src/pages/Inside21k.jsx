@@ -7,14 +7,14 @@ const TALK = ['Talk to an admissions counsellor', '/inside-21k/book-a-call/']
 // Each block: title, paragraphs, optional image, optional callout
 const BLOCKS = [
   { t: 'Why #AnotherWay is needed', p: ['Traditional schooling was built around constraints: one location, one timetable, one standard route and one definition of success. Those structures can work for some children. They can also leave others waiting, rushing, conforming or compromising important parts of their lives.', 'Online education should not simply reproduce those constraints on a screen. It should use technology to make excellent teaching more accessible, learning more responsive and school more compatible with childhood.'] },
-  { t: 'A complete school—not a collection of online classes', img: IMG.learner23, alt: 'A learner cheering with both arms raised in front of a brick wall',
+  { t: 'A complete school—not a collection of online classes', img: IMG.learner23, alt: 'A learner working through problems with a laptop, notebook and calculator',
     p: ['21K School brings together curriculum, live teaching, assessment, learner support, community and recognised progression. Facilitators know what learners are working towards. Families receive a timetable, resources, feedback, reports and clear channels for support.', 'Assemblies, projects, celebrations, clubs, online events, selected in-person experiences and peer collaboration add the shared experiences that make a school community. The result is structured enough to build continuity and flexible enough to recognise that meaningful learning also happens beyond scheduled classes.'] },
   { t: 'One ecosystem, more ways to learn', img: IMG.learner45, alt: 'A learner inline speed skating with a coach watching behind',
     p: ['Online School is the flagship schooling pathway. FLOWW, The Garage and 21K Campus extend what the ecosystem can offer through flexible programmes, hands-on experiences and place-based learning.', 'A child may need one part of the ecosystem today and another later. The idea is not to force families into a single format, but to create connected choices around the learner.'],
     callout: 'Online School, FLOWW, The Garage or Campus? Find the right fit.' },
   { t: 'Indian or international. One standard.',
     p: ['Families can choose pathways aligned with Indian or international progression. The current ecosystem includes the Indian curriculum informed by national frameworks, NIOS, Cambridge and Pearson Edexcel routes across relevant grades.', 'Each pathway has distinct subjects, assessment structures and progression rules. What remains consistent is the expectation of serious teaching, active learning, thoughtful support and transparent guidance.'] },
-  { t: 'Personalisation with integrity', img: IMG.girl, alt: 'A curious, smiling girl',
+  { t: 'Personalisation with integrity', img: IMG.girl, alt: 'A learner taking notes beside her tablet in class',
     p: ['Personalisation is often reduced to letting a child click through content alone. At 21K School, it begins with understanding the learner: present knowledge, pace, interests, aspirations, strengths and areas where support is needed.', 'Facilitators, assessment evidence, learning resources and support systems work together to help learners move forward. Personalisation does not mean lowering expectations. It means creating a more intelligent route towards meaningful expectations.'] },
   { t: 'The freedom to learn without losing structure',
     p: ['Flexibility matters when a child is an athlete, artist, performer, traveller, accelerated learner, internationally mobile learner or simply someone who learns better outside a conventional campus. It also matters to families who cannot access the quality or curriculum they want locally.', 'Class timings and multiple pathways create options, while the school calendar, live classes, assignments and progress systems maintain rhythm. Freedom works best when children know what is expected and have adults who notice whether they are progressing.'],
@@ -60,7 +60,7 @@ export default function Inside21K() {
         title="#AnotherWay" accent="to School"
         text="Every parent wants to make a responsible decision for their child. 21K School is a global K–12 learning ecosystem designed to give children strong academics, purposeful relationships and room to grow—without asking every learner to fit one place, pace or path."
         actions={<Btn href={ext(TALK[1])}>Book a call</Btn>}
-        img={IMG.anotherHero} imgAlt="A girl in headphones waving to her live online class on a laptop"
+        img={IMG.anotherHero} imgAlt="Learners walking to school with their books, mountains behind them"
       />
       <Strip items={[['25,000+', 'Learners'], ['78', 'Countries'], ['46', 'Nationalities'], ['2', 'Accreditations']]} />
 
